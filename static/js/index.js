@@ -2,8 +2,7 @@ import {apiKey, baseUrl} from './settings.js'
 
 
 
-let hamDiv = document.getElementById('hamburger-option');
-let searchBar = document.getElementById('search-bar-div');
+let hamDiv = document.getElementById('hamburger-option')
 let searchGray = document.getElementById('search-gray');
 let resultsDiv = document.getElementById('results-div');
 let searchResultLine = document.getElementById('search-result-line');
@@ -22,7 +21,6 @@ const removeAllChildNodes = (parent) => {
 let getTrending = async (baseUrl, apiKey) => {
     const url = baseUrl + `/trending/searches?api_key=${apiKey}`;
     try {
-            let resultsUl = document.getElementById('results-ul');
         const response = await fetch(url);
         let data = await response.json()
         const trendingCatArr = data.data.slice(0,5)
@@ -83,20 +81,22 @@ hamDiv.addEventListener('click', () => {
 getTrending(baseUrl, apiKey)
 
 let searchString = document.getElementById('search-input');
+
+// Search Suggestions
 searchString.addEventListener('input', async (event) => {
     let searchString = event.target.value;
     if (searchString == '') {
+        resultsDiv.innerHTML = '';
         searchResultLine.classList.add('hide')
         searchGray.style.opacity = 0;
-        resultsDiv.innerHTML = '';
     } else {
+        console.log('there')
+        searchResultLine.classList.remove('hide')
         searchGray.style.opacity = 1;
         let suggestionsArr = await getSearchSuggestions(searchString, baseUrl, apiKey);
-        searchResultLine.classList.remove('hide')
         let resultsUl = document.createElement('ul')
         resultsUl.classList.add('suggested-results', 'container')
         for (let i = 0; i < suggestionsArr.length; i++) {
-            console.log('for')
             const sugestedString = suggestionsArr[i].name;            
             
             let li = document.createElement('li');
