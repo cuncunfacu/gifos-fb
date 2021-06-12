@@ -37,12 +37,21 @@
         <div class="search-section container">
             <h1>Inspírate, busca, guarda, y crea los mejores <span>GIFOS</span></h1>
             <img src="./static/images/ilustra_header.svg" alt="">
-            <div class="search-bar-header container">
-                <input type="text">
+            <div class="search-and-results container">
+                <div id="search-bar-div" class="search-bar container">
+                    <img id="search-gray" src="./static/images/icon-search-mod-gray.svg" alt="">
+                    <input id="search-input" type="text" placeholder="Busca GIFOS y más">
+                    <img src="./static/images/icon-search.svg" alt="">
+                </div>
+                <div id="search-result-line" class="search-result-line hide"></div>
+                <div id="results-div" class="results container">
+                    <ul id="results-ul" class="suggested-results container">
+                    </ul>
+                </div>
             </div>
             <div class="trending container">
                 <h2>Trending:</h2>
-                <p>Reactions, Entertainment, Sports, Stickers, Artists</p>
+                <p id="trending-categories">Loading...</p>
             </div>
         </div>
     </header>
@@ -67,6 +76,6 @@
         </div>
     </footer>
     <div class="line"></div>
-    <script src="./static/js/index.js"></script>
+    <script type="module" src="./static/js/index.js"></script>
 </body>
 </html>
