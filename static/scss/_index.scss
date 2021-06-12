@@ -1,0 +1,129 @@
+h1, h2 {
+    font-family: $montserrat;
+}
+
+.line {
+    height: 5px;
+    background-color: $blue-1;
+}
+
+
+header {
+    margin-left: 20px;
+    margin-right: 20px;
+    .nav-bar {
+        height: 95px;
+        
+        .nav-header {
+            padding-top: 30px;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            .search-bar-nav {
+                display: none;
+            }
+
+            .hamburger-option {
+                height: 15px;
+                width: 15px;
+                margin-right: 6px;
+                justify-content: space-between;
+                span {
+                    height: 2px;
+                    width: 15px;
+                    background-color: $blue-1;
+                }
+            }
+            }
+        }
+        .search-section {
+            align-items: center;
+            margin-top: 7px;
+            h1 {
+                color: $blue-1;
+                font-size: 26px;
+                font-weight: bold;
+                line-height: 35px;
+                width: 85%;
+                span {
+                    color: $green-1;
+                }
+            }
+            img {
+                width: 81.5%;
+                margin-top: 31px;
+            }
+            .search-bar-header {
+                width: 81.5%;
+                align-items: center;
+                input {
+                    width: 80%;
+                }
+            }
+            .trending {
+                margin-top: 31px;
+                color: $blue-1;
+                width: 67%;
+                h2 {
+                    font-size: 16px;
+                    font-weight: bold;
+                    line-height: 25px;
+                }
+                p {
+                    font-family: $roboto;
+                    font-size: 14px;
+                    line-height: 25px;
+                }
+            }
+        }
+
+    }
+
+main {
+    .trending-gifos-section{
+        margin-top: 54px;
+        height: 430px;
+        width: 100%;
+        background-color: $gray-1;
+        align-items: center;
+        h2{
+            margin-top: 46px;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 30px;
+        }
+        p {
+            font-family: $roboto;
+            font-size: 16px;
+            line-height: 23px;
+            width: 44%;
+        }
+    }
+}
+
+footer {
+    .share-section {
+        align-items: center;
+        p {
+            margin-top: 47px;
+            font-family: $roboto;
+            font-size: 15px;
+            letter-spacing: 0;
+        }
+        .media {
+            margin-top: 24px;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 25%;
+        }
+    }
+    .copyright {
+        margin-top: 48px;
+        p {
+            font-family: $roboto;
+            font-size: 14px;
+            letter-spacing: 0;
+            line-height: 20px;
+        }
+    }
+}
