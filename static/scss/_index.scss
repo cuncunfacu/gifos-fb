@@ -28,10 +28,26 @@ header {
                 width: 15px;
                 margin-right: 6px;
                 justify-content: space-between;
-                span {
-                    height: 2px;
-                    width: 15px;
-                    background-color: $blue-1;
+                &.ham-untoggled {
+                    span {
+                        height: 2px;
+                        width: 15px;
+                        background-color: $blue-1;
+                    }
+                }
+                &.ham-toggled {
+                    #ham-span-1 {
+                        height: 2px;
+                        width: 21.2px;
+                        transform: rotate(45deg);
+                        background-color: $blue-1;
+                    }
+                    #ham-span-2 {
+                        height: 2px;
+                        transform: rotate(-45deg) translate(8.6px, -9.5px);
+                        width: 21.2px;
+                        background-color: $blue-1;
+                    }
                 }
             }
             }
