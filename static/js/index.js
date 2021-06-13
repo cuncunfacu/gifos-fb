@@ -1,6 +1,6 @@
-import {apiKey, baseUrl} from './settings.js'
-
-
+import {apiKey, baseUrl} from './settings.js';
+import {trendingGifsComponent} from './trending-gifs-component.js';
+import {navBarComponent} from './nav-bar-component.js';
 
 let hamDiv = document.getElementById('hamburger-option')
 let searchGray = document.getElementById('search-gray');
@@ -8,7 +8,8 @@ let searchBlue = document.getElementById('search-blue');
 let resultsDiv = document.getElementById('results-div');
 let searchResultLine = document.getElementById('search-result-line');
 
-let trendingCarrouselDiv = document.getElementById('trending-carrousel');
+let trendingGifsComponentDiv = document.getElementById('trending-gifs-component');
+let navBarComponentDiv = document.getElementById('nav-bar-component');
 
 searchGray.style.opacity = 0;
 // aux functions 
@@ -42,29 +43,6 @@ let getTrending = async (baseUrl, apiKey) => {
 }
 
 
-let getTrendingGifs = async (baseUrl, apiKey) => {
-    const url = baseUrl + `/gifs/trending?api_key=${apiKey}`;
-    try {
-        const response = await fetch(url);
-        let data = await response.json();
-        data = data.data.slice(0,12);
-
-        for (let i = 0; i < data.length; i++) {
-            const element = data[i];
-            let trendingGifDiv = document.createElement('div');
-            trendingGifDiv.classList.add('trending-card', 'container')
-            trendingGifDiv.id = element.id;
-
-            let trendingImg = document.createElement('img');
-            trendingImg.src = element.images.downsized_medium.url;
-
-            trendingGifDiv.appendChild(trendingImg);
-            trendingCarrouselDiv.appendChild(trendingGifDiv);
-        }
-    } catch (error) {
-        console.log(error)
-    }
-}
 let getSearchSuggestions = async (searchString, baseUrl, apiKey) => {
     // parse search string to replace ' ' with '+'
 
@@ -86,32 +64,17 @@ let getSearchSuggestions = async (searchString, baseUrl, apiKey) => {
     
 }
 
-
-hamDiv.addEventListener('click', () => {
-    let ham3 = document.getElementById('ham-span-3');
-    
-    const isToggled = hamDiv.classList.contains('ham-untoggled');
-
-    if (isToggled) {
-        ham3.classList.add('hide');
-        hamDiv.classList.remove('ham-untoggled');
-        hamDiv.classList.add('ham-toggled');
-    } else {
-        ham3.classList.remove('hide');
-        hamDiv.classList.add('ham-untoggled');
-        hamDiv.classList.remove('ham-toggled');
-    }
-})
-
-
 // on page load
 getTrending(baseUrl, apiKey);
 
-getTrendingGifs(baseUrl, apiKey);
-let searchString = document.getElementById('search-input');
+let searchInput = document.getElementById('search-input');
+
+
+trendingGifsComponent(baseUrl, apiKey, trendingGifsComponentDiv);
+navBarComponent(navBarComponentDiv);
 
 // Search Suggestions
-searchString.addEventListener('input', async (event) => {
+searchInput.addEventListener('input', async (event) => {
     let searchString = event.target.value;
     if (searchString == '') {
         resultsDiv.innerHTML = '';
