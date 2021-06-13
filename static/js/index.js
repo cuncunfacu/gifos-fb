@@ -4,8 +4,11 @@ import {apiKey, baseUrl} from './settings.js'
 
 let hamDiv = document.getElementById('hamburger-option')
 let searchGray = document.getElementById('search-gray');
+let searchBlue = document.getElementById('search-blue');
 let resultsDiv = document.getElementById('results-div');
 let searchResultLine = document.getElementById('search-result-line');
+
+let trendingCarrouselDiv = document.getElementById('trending-carrousel');
 
 searchGray.style.opacity = 0;
 // aux functions 
@@ -38,6 +41,30 @@ let getTrending = async (baseUrl, apiKey) => {
     
 }
 
+
+let getTrendingGifs = async (baseUrl, apiKey) => {
+    const url = baseUrl + `/gifs/trending?api_key=${apiKey}`;
+    try {
+        const response = await fetch(url);
+        let data = await response.json();
+        data = data.data.slice(0,12);
+
+        for (let i = 0; i < data.length; i++) {
+            const element = data[i];
+            let trendingGifDiv = document.createElement('div');
+            trendingGifDiv.classList.add('trending-card', 'container')
+            trendingGifDiv.id = element.id;
+
+            let trendingImg = document.createElement('img');
+            trendingImg.src = element.images.downsized_medium.url;
+
+            trendingGifDiv.appendChild(trendingImg);
+            trendingCarrouselDiv.appendChild(trendingGifDiv);
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
 let getSearchSuggestions = async (searchString, baseUrl, apiKey) => {
     // parse search string to replace ' ' with '+'
 
@@ -78,8 +105,9 @@ hamDiv.addEventListener('click', () => {
 
 
 // on page load
-getTrending(baseUrl, apiKey)
+getTrending(baseUrl, apiKey);
 
+getTrendingGifs(baseUrl, apiKey);
 let searchString = document.getElementById('search-input');
 
 // Search Suggestions
@@ -88,10 +116,9 @@ searchString.addEventListener('input', async (event) => {
     if (searchString == '') {
         resultsDiv.innerHTML = '';
         searchResultLine.classList.add('hide')
+        searchBlue.classList.remove('hide');
         searchGray.style.opacity = 0;
     } else {
-        console.log('there')
-        searchResultLine.classList.remove('hide')
         searchGray.style.opacity = 1;
         let suggestionsArr = await getSearchSuggestions(searchString, baseUrl, apiKey);
         let resultsUl = document.createElement('ul')
@@ -114,5 +141,7 @@ searchString.addEventListener('input', async (event) => {
         }
         resultsDiv.innerHTML = '';
         resultsDiv.appendChild(resultsUl);
+        searchResultLine.classList.remove('hide')
+        searchBlue.classList.add('hide');
     }
 })

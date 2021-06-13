@@ -158,12 +158,32 @@ main {
             font-weight: bold;
             font-size: 20px;
             line-height: 30px;
+            color: $blue-1;
         }
         p {
             font-family: $roboto;
             font-size: 16px;
             line-height: 23px;
             width: 44%;
+        }
+        .trending-carrousel{
+            flex-direction: row;
+            justify-content: flex-start;
+            width: 100%;
+            overflow-x: scroll;
+            margin-top: 32px;
+            .trending-card{
+                height: 187px;
+                width: 243px;
+                margin-left: 22px;
+                margin-right: 22px;
+                img{
+                    min-width: 100%;
+                    min-height: 100%;
+                    width: auto;
+                    height: auto;
+                }
+            }
         }
     }
 }
