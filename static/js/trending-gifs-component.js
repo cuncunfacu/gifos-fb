@@ -28,11 +28,13 @@ const trendingGifsComponent = async (baseUrl, apiKey, trendingGifsComponentDiv) 
             trendingGifDiv.classList.add('trending-card', 'container')
             trendingGifDiv.id = element.id;
             trendingGifDiv.addEventListener('click', async () => {
+                let body = document.getElementById('body');
                 let gifData = await getGif(apiKey, baseUrl, 'NEvPzZ8bd1V4Y');
                 // render gif div with image and buttons
 
                 let cardGifMaxDiv = document.createElement('div');
                 cardGifMaxDiv.classList.add('card-gif-max', 'container');
+                cardGifMaxDiv.id = 'card-max';
 
                 let cardDivMaxMain = document.createElement('div');
                 cardDivMaxMain.classList.add('card-div-max-main');
@@ -73,6 +75,9 @@ const trendingGifsComponent = async (baseUrl, apiKey, trendingGifsComponentDiv) 
 
                 let cross = document.createElement('div');
                 cross.classList.add('cross', 'container')
+                cross.addEventListener('click', () => {
+                    cardGifMaxDiv.remove();
+                })
 
                 let crossDiv1 = document.createElement('div');
                 crossDiv1.classList.add('cross-div-1');
@@ -83,7 +88,6 @@ const trendingGifsComponent = async (baseUrl, apiKey, trendingGifsComponentDiv) 
                 cardGifMaxDiv.appendChild(cross);
 
                 cardGifMaxDiv.appendChild(cardDivMaxMain);
-                let body = document.getElementById('body');
                 body.appendChild(cardGifMaxDiv);
 
             })
