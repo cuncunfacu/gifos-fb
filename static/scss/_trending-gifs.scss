@@ -65,41 +65,41 @@
         }
     }
 
-    .card-div-max-main {
-        img {
-            max-width:318px;
-            max-height:245px;
-            width: auto;
-            height: auto;
-        }
-        .card-div-max-footer {
-            flex-direction: row;
+    // .card-div-max-main {
+    //     img {
+    //         max-width:318px;
+    //         max-height:245px;
+    //         width: auto;
+    //         height: auto;
+    //     }
+    //     .card-div-max-footer {
+    //         flex-direction: row;
 
-            width: 318px;
-            .card-div-max-left-txt {
-                align-self: flex-start;
-                text-align: initial;
-                width: 75%;
-                h6 {
-                    font-family: $roboto;
-                    font-size: 15px;
-                    margin-top: 14px;
-                    margin-bottom: 0;
-                    margin-left: 5px;
+    //         width: 318px;
+    //         .card-div-max-left-txt {
+    //             align-self: flex-start;
+    //             text-align: initial;
+    //             width: 75%;
+    //             h6 {
+    //                 font-family: $roboto;
+    //                 font-size: 15px;
+    //                 margin-top: 14px;
+    //                 margin-bottom: 0;
+    //                 margin-left: 5px;
         
-                }
-                h5 {
-                    font-family: $montserrat;
-                    font-size: 16px;
-                    margin-top: 6px;
-                    margin-bottom: 0;
-                }
-            }
-            img {
-                width: 40px;
-                height: auto;
-            }
-        }
-    }
+    //             }
+    //             h5 {
+    //                 font-family: $montserrat;
+    //                 font-size: 16px;
+    //                 margin-top: 6px;
+    //                 margin-bottom: 0;
+    //             }
+    //         }
+    //         img {
+    //             width: 40px;
+    //             height: auto;
+    //         }
+    //     }
+    // }
 
 }
