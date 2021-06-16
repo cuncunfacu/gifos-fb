@@ -29,7 +29,7 @@ const trendingGifsComponent = async (baseUrl, apiKey, trendingGifsComponentDiv) 
             trendingGifDiv.id = element.id;
             trendingGifDiv.addEventListener('click', async () => {
                 let body = document.getElementById('body');
-                let gifData = await getGif(apiKey, baseUrl, 'NEvPzZ8bd1V4Y');
+                let gifData = await getGif(apiKey, baseUrl, element.id);
                 // render gif div with image and buttons
 
                 let cardGifMaxDiv = document.createElement('div');
@@ -40,7 +40,7 @@ const trendingGifsComponent = async (baseUrl, apiKey, trendingGifsComponentDiv) 
                 cardDivMaxMain.classList.add('card-div-max-main');
 
                 let cardDivMaxImg = document.createElement('img');
-                cardDivMaxImg.src = 'https://media2.giphy.com/media/9NjCuuwFagxAlvIcQt/giphy.gif?cid=7d368d99c3aeuc0dyxyyvefqihu0tlbldvm15lldkjuyc11l&rid=giphy.gif&ct=g';
+                cardDivMaxImg.src = gifData.images.original.url;
                 
                 let cardDivMaxFooter = document.createElement('div');
                 cardDivMaxFooter.classList.add('card-div-max-footer', 'container');

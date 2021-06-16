@@ -4,9 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GIFOS - Favorites</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto&display=swap" rel="stylesheet">
+
+    <!-- Style Sheet -->
+    <link rel="stylesheet" href="./static/css/main.min.css">
+    <title>GIFOS - Favoritos</title>
 </head>
-<body>
-    
+<body id="body">
+    <div class="line"></div>
+    <header>
+        <div id="nav-bar-component" class="nav-bar container"></div>
+        <div class="favorites-header container">
+            <img src="./static/images/icon-favoritos.svg" alt="">
+            <h1>Favoritos</h1>
+        </div>
+    </header>
+    <main>
+        <div id="trending-gifs-component" class="trending-gifos-section container"></div>
+    </main>
+    <footer>
+        <div class="share-section container">
+            <p>Compartir en:</p>
+            <div class="media container">
+                <img src="./static/images/icon_facebook.svg" alt="">
+                <img src="./static/images/icon-twitter.svg" alt="">
+                <img src="./static/images/icon_instagram.svg" alt="">
+            </div>
+        </div>
+        <div class="copyright container">
+            <p>&copy; GIFOS 2020 All Rights Reserved.</p>
+        </div>
+    </footer>
+    <div class="line"></div>
+    <script type="module" src="./static/js/favorites.js"></script>
 </body>
 </html>

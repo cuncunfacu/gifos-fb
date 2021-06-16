@@ -1,0 +1,15 @@
+.favorites-header {
+    align-items: center;
+    img {
+        margin-top: 5px;
+        width: 28px;
+        height: 21px;
+    }
+    h1 {
+    margin-top: 7px;
+    font-family: $montserrat;
+    font-size: 20px;
+    color: $blue-1;
+    line-height: 30px;
+    }
+}

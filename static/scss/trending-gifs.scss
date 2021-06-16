@@ -1,7 +1,6 @@
 .trending-gifos-section{
     margin-top: 54px;
     height: 430px;
-    width: 100%;
     background-color: $gray-1;
     align-items: center;
     h2{
@@ -40,10 +39,13 @@
 
 .card-gif-max {
     position: fixed;
-    top: 64px;
-    background-color: white;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(255,255,255,0.90);;
     align-items: center;
     .cross {
+        margin-top: 64px;
         margin-right: 40px;
         margin-bottom: 78px;
         align-self: flex-end;
@@ -53,7 +55,7 @@
             width: 100%;
             height: 2px;
             background-color: $blue-1;
-            transform: rotate(45deg);
+            transform: rotate(45deg) translate(1.5px, 1.5px);
         }
         .cross-div-2 {
             width: 100%;
@@ -64,12 +66,16 @@
     }
 
     .card-div-max-main {
-        width: 100%
         img {
-            width: 318px;
+            max-width:318px;
+            max-height:245px;
+            width: auto;
+            height: auto;
         }
         .card-div-max-footer {
             flex-direction: row;
+
+            width: 318px;
             .card-div-max-left-txt {
                 align-self: flex-start;
                 text-align: initial;
