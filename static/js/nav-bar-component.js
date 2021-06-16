@@ -2,6 +2,9 @@ const navBarComponent = (navBarComponentDiv) => {
     let navHeader = document.createElement('div');
     navHeader.classList.add('nav-header', 'container');
 
+    // for big screens
+    let bigScreenLinksDiv = document.createElement('div')
+
     let logo = document.createElement('a');
     logo.href = '/';
     logo.classList.add('logo');
@@ -73,6 +76,9 @@ const navBarComponent = (navBarComponentDiv) => {
     navHeader.appendChild(hamburgerToggle);
     navBarComponentDiv.appendChild(navHeader);
     navBarComponentDiv.appendChild(navLinks);
+
+    bigScreenLinksDiv.appendChild(navLinks);
+    navBarComponentDiv.appendChild(bigScreenLinksDiv);
 }
 
 export {navBarComponent}
