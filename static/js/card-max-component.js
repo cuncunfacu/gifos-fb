@@ -2,6 +2,7 @@ import {getGif} from './api-calls.js';
 const cardMaxComponent = async (id) => {
     let body = document.getElementById('body');
     let gifData = await getGif(id);
+
     // render gif div with image and buttons
 
     let cardGifMaxDiv = document.createElement('div');
@@ -21,10 +22,10 @@ const cardMaxComponent = async (id) => {
     cardDivMaxLeftTxt.classList.add('card-div-max-left-txt');
 
     let userTxt = document.createElement('h6');
-    userTxt.innerText = "User";
+    userTxt.innerText = gifData.username;
 
     let gifTitle = document.createElement('h5');
-    gifTitle.innerText = "Título GIFO";
+    gifTitle.innerText = gifData.title;
 
     let favSvg = document.createElement('img');
 
