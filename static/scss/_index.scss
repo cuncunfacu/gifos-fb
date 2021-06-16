@@ -7,7 +7,32 @@ h1, h2 {
     background-color: $blue-1;
 }
 
+.nav-links {
+    color: black;
+    position: absolute;
+    background-color: rgba(87,46,229,0.90);
+    margin-top: 100px;
+    width: 100vw;
+    height: 2000px;
+    z-index: 1;
+    margin-left: -20px;
+    margin-right: -20px;
 
+    ul {
+        margin-top: 17px;
+        font-family: $montserrat;
+        font-weight: bold;
+        font-size: 15px;
+        line-height: 60px;
+        li {
+            // height: 60px;
+            color: white;
+            a {
+                color: white;
+            }
+        }
+    }
+}
 header {
     .nav-bar {
         margin-left: 20px;
@@ -44,7 +69,7 @@ header {
                     }
                     #ham-span-2 {
                         height: 2px;
-                        transform: rotate(-45deg) translate(8.6px, -9.5px);
+                        transform: rotate(-45deg) translate(5.6px, -6.5px);
                         width: 21.2px;
                         background-color: $blue-1;
                     }
@@ -147,45 +172,6 @@ header {
     }
 
 main {
-    .trending-gifos-section{
-        margin-top: 54px;
-        height: 430px;
-        width: 100%;
-        background-color: $gray-1;
-        align-items: center;
-        h2{
-            margin-top: 46px;
-            font-weight: bold;
-            font-size: 20px;
-            line-height: 30px;
-            color: $blue-1;
-        }
-        p {
-            font-family: $roboto;
-            font-size: 16px;
-            line-height: 23px;
-            width: 44%;
-        }
-        .trending-carrousel{
-            flex-direction: row;
-            justify-content: flex-start;
-            width: 100%;
-            overflow-x: scroll;
-            margin-top: 32px;
-            .trending-card{
-                height: 187px;
-                width: 243px;
-                margin-left: 22px;
-                margin-right: 22px;
-                img{
-                    min-width: 100%;
-                    min-height: 100%;
-                    width: auto;
-                    height: auto;
-                }
-            }
-        }
-    }
 }
 
 footer {

@@ -2,7 +2,7 @@ import {apiKey, baseUrl} from './settings.js';
 import {trendingGifsComponent} from './trending-gifs-component.js';
 import {navBarComponent} from './nav-bar-component.js';
 
-let hamDiv = document.getElementById('hamburger-option')
+
 let searchGray = document.getElementById('search-gray');
 let searchBlue = document.getElementById('search-blue');
 let resultsDiv = document.getElementById('results-div');
@@ -11,14 +11,8 @@ let searchResultLine = document.getElementById('search-result-line');
 let trendingGifsComponentDiv = document.getElementById('trending-gifs-component');
 let navBarComponentDiv = document.getElementById('nav-bar-component');
 
-searchGray.style.opacity = 0;
-// aux functions 
 
-const removeAllChildNodes = (parent) => {
-    while (parent.firstChild) {
-        parent.innerHTML = "";
-    }
-}
+
 
 // api calls
 
@@ -65,6 +59,7 @@ let getSearchSuggestions = async (searchString, baseUrl, apiKey) => {
 }
 
 // on page load
+searchGray.style.opacity = 0;
 getTrending(baseUrl, apiKey);
 
 let searchInput = document.getElementById('search-input');
