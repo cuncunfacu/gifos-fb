@@ -1,0 +1,15 @@
+.mini-cards {
+    margin-top: 46px;
+    flex-direction: row;
+    padding-left: 22px;
+    padding-right: 22px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .mini-card {
+        margin-bottom: 15px;
+        img {
+            height: 120px;
+            width: 156px;
+        }
+        }
+}

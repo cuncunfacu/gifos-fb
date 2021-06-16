@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,iBAAiB,AAAC,CACd,WAAW,CAAE,MAAM,CAKtB,AAND,AAEI,iBAFa,CAEb,GAAG,AAAC,CACA,KAAK,CAAE,IAAI,CACX,MAAM,CAAE,IAAI,CACf",
-    "sources": [
-        "../scss/favorites.scss"
-    ],
-    "names": [],
-    "file": "favorites.min.css"
-}

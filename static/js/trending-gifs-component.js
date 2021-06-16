@@ -1,4 +1,4 @@
-import {getGif} from './card-purple.js';
+import {getGif} from './api-calls.js';
 import {baseUrl, apiKey} from './settings.js';
 
 

@@ -1,3 +1,5 @@
+import {apiKey, baseUrl} from './settings.js';
+
 const getGif = async (apiKey, baseUrl, gifId) => {
     console.log('get GIF');
     const url = baseUrl + `/gifs/${gifId}?api_key=${apiKey}`;
