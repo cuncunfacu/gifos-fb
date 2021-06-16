@@ -1,4 +1,5 @@
-import {getGif} from './api-calls.js'
+import {getGif} from './api-calls.js';
+import {cardMaxComponent} from './card-max-component.js';
 import {apiKey, baseUrl} from './settings.js'
 const miniCardsComponent = async (miniCardDiv, ids) => {
 
@@ -10,11 +11,14 @@ const miniCardsComponent = async (miniCardDiv, ids) => {
         let img = document.createElement('img');
         img.src = gifData.images.downsized.url;
         imgDiv.appendChild(img);
-        miniCardDiv.appendChild(imgDiv);
 
         //todo event listener for maxcard and hoover
-
+        imgDiv.addEventListener('click', () => {
+            cardMaxComponent(id)
+        })
         //todo ver mas
+
+        miniCardDiv.appendChild(imgDiv);
     });
 
     return miniCardDiv;

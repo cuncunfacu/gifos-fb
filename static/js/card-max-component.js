@@ -1,8 +1,7 @@
 import {getGif} from './api-calls.js';
-
-const cardMaxComponent = async (api_key, baseUrl, id) => {
+const cardMaxComponent = async (id) => {
     let body = document.getElementById('body');
-    let gifData = await getGif(apiKey, baseUrl, element.id);
+    let gifData = await getGif(id);
     // render gif div with image and buttons
 
     let cardGifMaxDiv = document.createElement('div');
@@ -62,7 +61,6 @@ const cardMaxComponent = async (api_key, baseUrl, id) => {
 
     cardGifMaxDiv.appendChild(cardDivMaxMain);
     body.appendChild(cardGifMaxDiv);
-
 }
 
 export {cardMaxComponent}
