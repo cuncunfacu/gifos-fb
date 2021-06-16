@@ -2,6 +2,7 @@ import {apiKey, baseUrl} from './settings.js';
 import {trendingGifsComponent} from './trending-gifs-component.js';
 import {navBarComponent} from './nav-bar-component.js';
 import {miniCardsComponent} from './mini-cards-component.js';
+import {getFavs} from './api-calls.js';
 
 let trendingGifsComponentDiv = document.getElementById('trending-gifs-component');
 let navBarComponentDiv = document.getElementById('nav-bar-component');
@@ -12,18 +13,17 @@ favoriteGifsIds.push(['9lEGNc2hPkmevAciHq', 'l2olcETxXQjImhNcm2', '3oxQNhG6QjONT
 localStorage.clear()
 localStorage.setItem('favoriteGifsIds', JSON.stringify(favoriteGifsIds))
 
-trendingGifsComponent(trendingGifsComponentDiv);
+
 navBarComponent(navBarComponentDiv);
+trendingGifsComponent(trendingGifsComponentDiv);
 
-
-const getFavsIds = () => {
-    try {
-        let favoriteIds = JSON.parse(localStorage.favoriteGifsIds)[0];
-        return favoriteIds;
-    } catch {
-        console.log('No Favorites');
-        return [];
-    }
+let favsIds = getFavs()
+console.log(favsIds)
+if (favsIds.length != 0) {
+    miniCardsComponent(favoritesMiniCards, favsIds);
+}else {
+    // todo render no favss view
+    let p = document.createElement('p');
+    p.innerText = 'No FAVS'
+    favoritesMiniCards.appendChild(p)
 }
-
-miniCardsComponent(favoritesMiniCards, getFavsIds());
