@@ -12,7 +12,7 @@ favoriteGifsIds.push(['9lEGNc2hPkmevAciHq', 'l2olcETxXQjImhNcm2', '3oxQNhG6QjONT
 localStorage.clear()
 localStorage.setItem('favoriteGifsIds', JSON.stringify(favoriteGifsIds))
 
-trendingGifsComponent(baseUrl, apiKey, trendingGifsComponentDiv);
+trendingGifsComponent(trendingGifsComponentDiv);
 navBarComponent(navBarComponentDiv);
 
 
@@ -26,4 +26,4 @@ const getFavsIds = () => {
     }
 }
 
-miniCardsComponent(apiKey, baseUrl, favoritesMiniCards, getFavsIds());
+miniCardsComponent(favoritesMiniCards, getFavsIds());

@@ -65,7 +65,7 @@ getTrending(baseUrl, apiKey);
 let searchInput = document.getElementById('search-input');
 
 
-trendingGifsComponent(baseUrl, apiKey, trendingGifsComponentDiv);
+trendingGifsComponent(trendingGifsComponentDiv);
 navBarComponent(navBarComponentDiv);
 
 // Search Suggestions

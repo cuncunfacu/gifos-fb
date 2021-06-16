@@ -2,7 +2,7 @@ import {getGif} from './api-calls.js';
 import {baseUrl, apiKey} from './settings.js';
 
 
-const trendingGifsComponent = async (baseUrl, apiKey, trendingGifsComponentDiv) => {
+const trendingGifsComponent = async (trendingGifsComponentDiv) => {
     const url = baseUrl + `/gifs/trending?api_key=${apiKey}`;
 
     let h2 = document.createElement('h2');
@@ -29,7 +29,7 @@ const trendingGifsComponent = async (baseUrl, apiKey, trendingGifsComponentDiv) 
             trendingGifDiv.id = element.id;
             trendingGifDiv.addEventListener('click', async () => {
                 let body = document.getElementById('body');
-                let gifData = await getGif(apiKey, baseUrl, element.id);
+                let gifData = await getGif(element.id);
                 // render gif div with image and buttons
 
                 let cardGifMaxDiv = document.createElement('div');

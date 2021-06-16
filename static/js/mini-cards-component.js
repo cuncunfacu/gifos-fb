@@ -1,9 +1,9 @@
 import {getGif} from './api-calls.js'
-
-const miniCardsComponent = async (apiKey, baseUrl, miniCardDiv, ids) => {
+import {apiKey, baseUrl} from './settings.js'
+const miniCardsComponent = async (miniCardDiv, ids) => {
 
     ids.forEach(async id => {
-        let gifData = await getGif(apiKey, baseUrl, id);
+        let gifData = await getGif(id);
         let imgDiv = document.createElement('div');
         imgDiv.classList.add('mini-card');
         imgDiv.id = 'mini-card-'+id
