@@ -5,22 +5,29 @@ const getGif = async (gifId) => {
     const url = baseUrl + `/gifs/${gifId}?api_key=${apiKey}`;
     let response = await fetch(url)
     let data = await response.json();
+    console.log(data)
     return data.data
 }
 
 const addFav = (id) => {
-    let favoriteIds = JSON.parse(localStorage.favoriteGifsIds)[0];
-    favoriteIds.push(id);
-    localStorage.setItem('favoriteGifsIds', JSON.stringify(favoriteIds));
-    console.log('Saved to Favorites - ' + id);
+    let ids = getFavs()
+    ids.push(id);
+    
+    let favoriteIds = [];
+    favoriteIds.push(ids);
+    localStorage.setItem('favoriteGifsIds', JSON.stringify((favoriteIds)));
 }
 
 const removeFav = (id) => {
-    let favoriteIds = JSON.parse(localStorage.favoriteGifsIds)[0];
-    favoriteIds = favoriteIds.filter(item => item !== id)
-
-    localStorage.setItem('favoriteGifsIds', JSON.stringify(favoriteIds));
-    console.log('Saved to Favorites - ' + id);
+    let ids = getFavs()
+    const index = ids.indexOf(id);
+    if (index > -1) {
+        console.log('splicing')
+        ids.splice(index, 1);
+    }
+    let favoriteIds = [];
+    favoriteIds.push(ids);
+    localStorage.setItem('favoriteGifsIds', JSON.stringify((favoriteIds)));
 }
 
 const getFavs = () => {
@@ -28,8 +35,10 @@ const getFavs = () => {
     try {
         let favoriteIds = JSON.parse(localStorage.favoriteGifsIds)[0];
         if (favoriteIds !== undefined){
+            console.log(favoriteIds)
             return favoriteIds;
         } else{
+            console.log([])
             return []
         }
     } catch {

@@ -8,10 +8,10 @@ let trendingGifsComponentDiv = document.getElementById('trending-gifs-component'
 let navBarComponentDiv = document.getElementById('nav-bar-component');
 let favoritesMiniCards = document.getElementById('favorites-mini-cards');
 
-let favoriteGifsIds = [];
-favoriteGifsIds.push(['9lEGNc2hPkmevAciHq', 'l2olcETxXQjImhNcm2', '3oxQNhG6QjONT91Ga4', 'TSIsZjiAPbFBFNNaJj'])
-localStorage.clear()
-localStorage.setItem('favoriteGifsIds', JSON.stringify(favoriteGifsIds))
+// let favoriteGifsIds = [];
+// favoriteGifsIds.push(['9lEGNc2hPkmevAciHq', 'l2olcETxXQjImhNcm2', '3oxQNhG6QjONT91Ga4', 'TSIsZjiAPbFBFNNaJj'])
+// localStorage.clear()
+// localStorage.setItem('favoriteGifsIds', JSON.stringify(favoriteGifsIds))
 
 
 navBarComponent(navBarComponentDiv);

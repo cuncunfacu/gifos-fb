@@ -1,4 +1,5 @@
 import {getGif} from './api-calls.js';
+import {getFavs, removeFav, addFav} from './api-calls.js'
 const cardMaxComponent = async (id) => {
     let body = document.getElementById('body');
     let gifData = await getGif(id);
@@ -28,10 +29,27 @@ const cardMaxComponent = async (id) => {
     gifTitle.innerText = gifData.title;
 
     let favSvg = document.createElement('img');
+    favSvg.classList.add('fav-svg');
 
     // todo render fav o no fav
-    favSvg.src = './static/images/icon-fav.svg';
+    
+    let favIds = getFavs();
+    if (favIds.indexOf(id) > -1) {
+        favSvg.src = './static/images/icon-fav-active.svg';
+    } else {
+        favSvg.src = './static/images/icon-fav-same-size.svg';
+    }
 
+    favSvg.addEventListener('click', () => {
+        let favIds = getFavs();
+        if (favIds.indexOf(id) > -1) {
+            removeFav(id);
+            favSvg.src = './static/images/icon-fav-same-size.svg';
+        } else {
+            addFav(id);
+            favSvg.src = './static/images/icon-fav-active.svg';
+        }
+    })
     
     let downloadSvg = document.createElement('img');
     downloadSvg.src = './static/images/icon-download.svg';
@@ -49,7 +67,7 @@ const cardMaxComponent = async (id) => {
     let cross = document.createElement('div');
     cross.classList.add('cross', 'container')
     cross.addEventListener('click', () => {
-        cardGifMaxDiv.remove();
+        location.reload();
     })
 
     let crossDiv1 = document.createElement('div');
