@@ -1,7 +1,8 @@
 import {apiKey, baseUrl} from './settings.js';
 import {trendingGifsComponent} from './trending-gifs-component.js';
 import {navBarComponent} from './nav-bar-component.js';
-
+import {miniCardsComponent} from './mini-cards-component.js'
+import { getGif, searchGifs } from './api-calls.js';
 
 let searchGray = document.getElementById('search-gray');
 let searchBlue = document.getElementById('search-blue');
@@ -10,9 +11,8 @@ let searchResultLine = document.getElementById('search-result-line');
 
 let trendingGifsComponentDiv = document.getElementById('trending-gifs-component');
 let navBarComponentDiv = document.getElementById('nav-bar-component');
-
-
-
+let searchResultsTitle = document.getElementById('search-results-title');
+let searchResultsMiniCards = document.getElementById('search-results-mini-cards');
 
 // api calls
 
@@ -68,6 +68,7 @@ let searchInput = document.getElementById('search-input');
 trendingGifsComponent(trendingGifsComponentDiv);
 navBarComponent(navBarComponentDiv);
 
+
 // Search Suggestions
 searchInput.addEventListener('input', async (event) => {
     let searchString = event.target.value;
@@ -103,3 +104,9 @@ searchInput.addEventListener('input', async (event) => {
         searchBlue.classList.add('hide');
     }
 })
+
+const renderSearch = async (searchString) => {
+    let resultsData = await searchGifs(searchString);
+    miniCardsComponent(searchResultsMiniCards, null ,resultsData, false)
+}
+renderSearch('hola')

@@ -7,6 +7,12 @@ const getGif = async (gifId) => {
     return data.data
 }
 
+const searchGifs = async (searchString, offset=12) => {
+    const url = baseUrl + `/gifs/search?api_key=${apiKey}&q=${searchString}&limit=12&offset=${offset}`;
+    let response = await fetch(url);
+    let data = await response.json();
+    return data.data
+}
 const addFav = (id) => {
     let ids = getFavs()
     ids.push(id);
@@ -41,4 +47,4 @@ const getFavs = () => {
         return [];
     }
 }
-export {getGif, addFav, removeFav, getFavs};
+export {getGif, addFav, removeFav, getFavs, searchGifs};

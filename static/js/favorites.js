@@ -20,7 +20,7 @@ trendingGifsComponent(trendingGifsComponentDiv);
 let favsIds = getFavs()
 console.log(favsIds)
 if (favsIds.length != 0) {
-    miniCardsComponent(favoritesMiniCards, favsIds);
+    miniCardsComponent(favoritesMiniCards, favsIds, null, true);
 }else {
     // todo render no favss view
     let p = document.createElement('p');

@@ -1,6 +1,6 @@
 import {getGif} from './api-calls.js';
 import {getFavs, removeFav, addFav} from './api-calls.js'
-const cardMaxComponent = async (id) => {
+const cardMaxComponent = async (id, reloadOnClose) => {
     let body = document.getElementById('body');
     let gifData = await getGif(id);
 
@@ -66,9 +66,14 @@ const cardMaxComponent = async (id) => {
 
     let cross = document.createElement('div');
     cross.classList.add('cross', 'container')
+    console.log(reloadOnClose)
     cross.addEventListener('click', () => {
-        location.reload();
-    })
+        if (reloadOnClose) {
+            location.reload();
+        } else {
+            cardGifMaxDiv.remove()
+        }
+    } )
 
     let crossDiv1 = document.createElement('div');
     crossDiv1.classList.add('cross-div-1');
