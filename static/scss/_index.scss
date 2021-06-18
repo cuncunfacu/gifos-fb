@@ -173,6 +173,23 @@ header {
     }
 
 main {
+    .search-result-title {
+        div {
+            width: 157px;
+            height: 1px;
+            background-color: $gray-2;
+            align-self: center;
+            margin-top: 35px;
+            margin-bottom: 43px;
+        }
+        h2 {
+            text-align: center;
+            font-family: $montserrat;
+            font-size: 25px;
+            color: $blue-1;
+            line-height: 40px;
+        }
+    }
 }
 
 footer {

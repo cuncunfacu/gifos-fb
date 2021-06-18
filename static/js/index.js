@@ -106,6 +106,14 @@ searchInput.addEventListener('input', async (event) => {
 })
 
 const renderSearch = async (searchString) => {
+    let searchStringh2 = document.createElement('h2');
+    searchStringh2.innerText = searchString.replace(' ','+');
+
+    let sepDiv = document.createElement('div');
+    
+    searchResultsTitle.appendChild(sepDiv);
+    searchResultsTitle.appendChild(searchStringh2);
+
     let resultsData = await searchGifs(searchString);
     miniCardsComponent(searchResultsMiniCards, null ,resultsData, false)
 }
