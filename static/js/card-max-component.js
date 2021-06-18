@@ -66,7 +66,6 @@ const cardMaxComponent = async (id, reloadOnClose) => {
 
     let cross = document.createElement('div');
     cross.classList.add('cross', 'container')
-    console.log(reloadOnClose)
     cross.addEventListener('click', () => {
         if (reloadOnClose) {
             location.reload();

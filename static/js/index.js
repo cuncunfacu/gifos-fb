@@ -11,8 +11,8 @@ let searchResultLine = document.getElementById('search-result-line');
 
 let trendingGifsComponentDiv = document.getElementById('trending-gifs-component');
 let navBarComponentDiv = document.getElementById('nav-bar-component');
-let searchResultsTitle = document.getElementById('search-results-title');
-let searchResultsMiniCards = document.getElementById('search-results-mini-cards');
+let searchResultsDiv = document.getElementById('search-results-div')
+
 
 // api calls
 
@@ -94,6 +94,11 @@ searchInput.addEventListener('input', async (event) => {
             let sugestedTextSpan = document.createElement('span');
             sugestedTextSpan.innerText = sugestedString;
 
+            li.addEventListener('click', () => {
+                renderSearch(sugestedString.replace(' ','+'))
+                searchInput.value = sugestedString;
+                resultsDiv.innerHTML = '';
+            })
             li.appendChild(searchImg);
             li.appendChild(sugestedTextSpan);
             resultsUl.appendChild(li)
@@ -106,15 +111,37 @@ searchInput.addEventListener('input', async (event) => {
 })
 
 const renderSearch = async (searchString) => {
+
+    console.log('hey')
+    let rdiv = document.getElementById('removable-div-results');
+    if (rdiv){
+        rdiv.remove()
+    }
+    rdiv = document.createElement('div');
+    rdiv.id = 'removable-div-results';
+
+    let searchResultsTitle = document.createElement('div');
+    searchResultsTitle.id = 'search-results-title';
+    searchResultsTitle.classList.add('search-result-title', 'container');
+
+    let searchResultsMiniCards = document.createElement('div');
+    searchResultsMiniCards.id = 'search-results-mini-cards'
+    searchResultsMiniCards.classList.add('mini-cards', 'container')
+
     let searchStringh2 = document.createElement('h2');
-    searchStringh2.innerText = searchString.replace(' ','+');
+    searchStringh2.innerText = searchString.replace('+',' ');
 
     let sepDiv = document.createElement('div');
     
     searchResultsTitle.appendChild(sepDiv);
     searchResultsTitle.appendChild(searchStringh2);
 
+
     let resultsData = await searchGifs(searchString);
     miniCardsComponent(searchResultsMiniCards, null ,resultsData, false)
+
+    rdiv.appendChild(searchResultsTitle);
+    rdiv.appendChild(searchResultsMiniCards);
+
+    searchResultsDiv.appendChild(rdiv);
 }
-renderSearch('hola')
