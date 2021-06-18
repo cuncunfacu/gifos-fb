@@ -98,6 +98,7 @@ searchInput.addEventListener('input', async (event) => {
                 renderSearch(sugestedString.replace(' ','+'))
                 searchInput.value = sugestedString;
                 resultsDiv.innerHTML = '';
+                searchResultLine.classList.add('hide')
             })
             li.appendChild(searchImg);
             li.appendChild(sugestedTextSpan);
