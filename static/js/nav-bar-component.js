@@ -39,6 +39,12 @@ const navBarComponent = (navBarComponentDiv) => {
     navMyGifs.appendChild(navMyGifsA);
     navUl.appendChild(navMyGifs);
 
+    let btnCrearGifoLi = document.createElement('li');
+    let btnCrearGifo = document.createElement('img');
+    btnCrearGifo.src = './static/images/button-crear-gifo.svg' ;
+    btnCrearGifoLi.appendChild(btnCrearGifo);
+    navUl.appendChild(btnCrearGifoLi);
+
     navLinks.appendChild(navUl);
     navLinks.classList.add('hide', 'nav-links', 'container');
 

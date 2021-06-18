@@ -23,11 +23,38 @@ h1, h2 {
         font-weight: bold;
         font-size: 15px;
         line-height: 60px;
+        margin: 0;
         li {
             // height: 60px;
             color: white;
             a {
                 color: white;
+            }
+            img {
+                position: relative;
+                top: 20px;
+                margin-right: 156px;
+            }
+        }
+    }
+    @media (min-width: $screen-lg) {
+        display: block;
+        position: absolute;
+        width: initial;
+        top: 0;
+        right: 0;
+        background-color: initial;
+        margin-left: 0;
+        margin-right: 0;
+        
+        ul {
+            li {
+                display: inline-block;
+                margin-left: 50px;
+                color: $blue-1;
+                a {
+                    color: $blue-1;
+                }
             }
         }
     }
@@ -73,6 +100,9 @@ header {
                         background-color: $blue-1;
                     }
                 }
+                @media (min-width: $screen-lg) {
+                    display: none;
+                }
             }
             }
         }
@@ -83,12 +113,19 @@ header {
             margin-top: 7px;
             margin-left: 20px;
             margin-right: 20px;
+            @media (min-width: $screen-lg) {
+                margin-top: 76px;
+                margin-bottom: 95px;
+            }
             h1 {
                 color: $blue-1;
                 font-size: 26px;
                 font-weight: bold;
                 line-height: 35px;
                 width: 85%;
+                @media (min-width: $screen-lg) {
+                    font-size: 35px;
+                }
                 span {
                     color: $green-1;
                 }
@@ -161,11 +198,17 @@ header {
                     font-size: 16px;
                     font-weight: bold;
                     line-height: 25px;
+                    @media (min-width: $screen-lg) {
+                        font-size: 18px;
+                    }
                 }
                 p {
                     font-family: $roboto;
                     font-size: 14px;
                     line-height: 25px;
+                    @media (min-width: $screen-lg) {
+                        font-size: 16px;
+                    }
                 }
             }
         }
@@ -193,6 +236,19 @@ main {
 }
 
 footer {
+    @media (min-width: $screen-lg) {
+        flex-direction: row;
+        .share-section{
+            align-self: flex-start;
+            justify-self: center;
+            flex-direction: row;
+        }
+        .copyright {
+            align-self: flex-end;
+            justify-self: center;
+            flex-direction: row;
+        }
+    }
     .share-section {
         align-items: center;
         p {
@@ -217,4 +273,6 @@ footer {
             line-height: 20px;
         }
     }
+
+
 }
