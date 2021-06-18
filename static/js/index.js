@@ -99,6 +99,9 @@ searchInput.addEventListener('input', async (event) => {
                 searchInput.value = sugestedString;
                 resultsDiv.innerHTML = '';
                 searchResultLine.classList.add('hide')
+                searchBlue.src = './static/images/close.svg';
+                searchBlue.classList.remove('hide');
+                searchBlue.addEventListener('click', e => location.reload())
             })
             li.appendChild(searchImg);
             li.appendChild(sugestedTextSpan);

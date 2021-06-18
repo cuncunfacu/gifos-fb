@@ -64,7 +64,8 @@ const cardMaxComponent = async (id, reloadOnClose) => {
     cardDivMaxMain.appendChild(cardDivMaxImg);
     cardDivMaxMain.appendChild(cardDivMaxFooter);
 
-    let cross = document.createElement('div');
+    let cross = document.createElement('img');
+    cross.src = './static/images/close.svg'
     cross.classList.add('cross', 'container')
     cross.addEventListener('click', () => {
         if (reloadOnClose) {
@@ -74,12 +75,6 @@ const cardMaxComponent = async (id, reloadOnClose) => {
         }
     } )
 
-    let crossDiv1 = document.createElement('div');
-    crossDiv1.classList.add('cross-div-1');
-    let crossDiv2 = document.createElement('div');
-    crossDiv2.classList.add('cross-div-2');
-    cross.appendChild(crossDiv1);
-    cross.appendChild(crossDiv2);
     cardGifMaxDiv.appendChild(cross);
 
     cardGifMaxDiv.appendChild(cardDivMaxMain);
