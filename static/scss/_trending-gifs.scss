@@ -1,10 +1,11 @@
 .trending-gifos-section{
     margin-top: 54px;
-    height: 430px;
+    // height: 430px;
+    margin-bottom: -10px;
     background-color: $gray-1;
     align-items: center;
     @media (min-width: $screen-lg) {
-        height: 640px
+        height: 700px;
     }
     h2{
         margin-top: 46px;
@@ -38,19 +39,30 @@
             overflow-x: scroll;
         }
         .trending-card{
-            height: 187px;
-            width: 243px;
             margin-left: 22px;
             margin-right: 22px;
-            @media (min-width: $screen-lg) {
-                height: 275px;
-                width: 357px;
-            }
             img{
-                min-width: 100%;
-                min-height: 100%;
-                width: auto;
-                height: auto;
+                height: 187px;
+                width: 243px;
+                @media (min-width: $screen-lg) {
+                    height: 275px;
+                    width: 357px;
+                }
+            }
+
+            &:hover{
+                .hover-div {
+                    @media (min-width: $screen-lg) {
+                        height: 275px;
+                        width: 357px;
+                        top: -50%;
+                        opacity: 0.6;
+                        background-color: $blue-1;
+                        position: relative;
+                        left: 0;
+                        z-index: 3;
+                    }
+                }
             }
         }
     }

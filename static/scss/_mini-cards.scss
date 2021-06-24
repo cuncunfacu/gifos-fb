@@ -13,6 +13,7 @@
         }
         &:hover{
             .hover-div {
+                @media (min-width: $screen-lg) {
                 width: 100%;
                 height: 100%;
                 opacity: 0.6;
@@ -21,7 +22,7 @@
                 top: -102%;
                 left: 0;
                 z-index: 2;
-            }
+            }}
         }
         }
     @media (min-width: $screen-lg) {

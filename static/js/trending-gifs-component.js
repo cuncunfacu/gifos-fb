@@ -28,12 +28,19 @@ const trendingGifsComponent = async (trendingGifsComponentDiv) => {
             trendingGifDiv.classList.add('trending-card', 'container')
             trendingGifDiv.id = element.id;
             trendingGifDiv.addEventListener('click', () => {
+                if (screen.width < 1000){
                 cardMaxComponent(element.id)
+                }
             })
             let trendingImg = document.createElement('img');
             trendingImg.src = element.images.downsized_medium.url;
 
+            let hoverDiv = document.createElement('div');
+            hoverDiv.id = 'hover-div-'+element.id
+            hoverDiv.classList.add('hover-div')
+
             trendingGifDiv.appendChild(trendingImg);
+            trendingGifDiv.appendChild(hoverDiv)
             trendingCarrouselDiv.appendChild(trendingGifDiv);
 
         }
