@@ -11,8 +11,15 @@ const navBarComponent = (navBarComponentDiv) => {
 
     let logoImg = document.createElement('img');
     logoImg.src = './static/images/logo-mobile.svg';
-    logo.alt = 'logo';
+    logoImg.alt = 'logo';
+    logoImg.id = 'logo-mobile';
     logo.appendChild(logoImg);
+
+    let logoImgDesk = document.createElement('img');
+    logoImgDesk.src = './static/images/logo-desktop.svg';
+    logoImgDesk.alt = 'logo';
+    logoImgDesk.id = 'logo-desktop';
+    logo.appendChild(logoImgDesk);
 
     let navLinks = document.createElement('nav');
     

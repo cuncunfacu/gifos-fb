@@ -47,5 +47,4 @@ const getFavs = () => {
         return [];
     }
 }
-
 export {getGif, addFav, removeFav, getFavs, searchGifs};
