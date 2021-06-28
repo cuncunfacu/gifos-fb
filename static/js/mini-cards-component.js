@@ -22,7 +22,7 @@ const renderMinicard = (element, miniCardDiv, reloadOnMiniCardClose) => {
         if (favIds.indexOf(element.id) > -1) {
             favSvg.src = './static/images/icon-fav-active.svg';
         } else {
-            favSvg.src = './static/images/icon-fav-same-size.svg';
+            favSvg.src = './static/images/icon-fav.svg';
         }
 
         favSvg.addEventListener('click', () => {

@@ -6,7 +6,7 @@ const navBarComponent = (navBarComponentDiv) => {
     let bigScreenLinksDiv = document.createElement('div')
 
     let logo = document.createElement('a');
-    logo.href = '/';
+    logo.href = './';
     logo.classList.add('logo');
 
     let logoImg = document.createElement('img');
@@ -33,14 +33,14 @@ const navBarComponent = (navBarComponentDiv) => {
 
     let navFavorites = document.createElement('li');
     let navFavoritesA = document.createElement('a');
-    navFavoritesA.href = '/favorites.html';
+    navFavoritesA.href = './favorites.html';
     navFavoritesA.innerText = 'FAVORITOS';
     navFavorites.appendChild(navFavoritesA);
     navUl.appendChild(navFavorites)
 
     let navMyGifs = document.createElement('li');
     let navMyGifsA = document.createElement('a');
-    navMyGifsA.href = '/my-gifs.html';
+    navMyGifsA.href = './my-gifs.html';
     navMyGifsA.innerText = 'MIS GIFOS';
 
     navMyGifs.appendChild(navMyGifsA);
