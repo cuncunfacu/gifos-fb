@@ -28,7 +28,7 @@ const navBarComponent = (navBarComponentDiv) => {
     navLinkSepLine2.classList.add('sep')
 
     let navUl = document.createElement('ul');
-    navUl.classList.add('container');
+    // navUl.classList.add('container');
     
     let navDarkMode = document.createElement('li');
     navDarkMode.innerText = 'MODO NOCTURNO';
