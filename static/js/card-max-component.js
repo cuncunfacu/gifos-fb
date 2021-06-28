@@ -44,7 +44,7 @@ const cardMaxComponent = async (id, reloadOnClose) => {
         let favIds = getFavs();
         if (favIds.indexOf(id) > -1) {
             removeFav(id);
-            favSvg.src = './static/images/icon-fav-same-size.svg';
+            favSvg.src = './static/images/icon-fav.svg';
         } else {
             addFav(id);
             favSvg.src = './static/images/icon-fav-active.svg';
@@ -54,6 +54,7 @@ const cardMaxComponent = async (id, reloadOnClose) => {
     let downloadSvg = document.createElement('img');
     downloadSvg.src = './static/images/icon-download.svg';
     downloadSvg.classList.add('download-svg');
+
 
     cardDivMaxLeftTxt.appendChild(userTxt);
     cardDivMaxLeftTxt.appendChild(gifTitle);

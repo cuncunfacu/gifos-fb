@@ -18,7 +18,6 @@ navBarComponent(navBarComponentDiv);
 trendingGifsComponent(trendingGifsComponentDiv);
 
 let favsIds = getFavs()
-console.log(favsIds)
 if (favsIds.length != 0) {
     miniCardsComponent(favoritesMiniCards, favsIds, null, true);
 }else {

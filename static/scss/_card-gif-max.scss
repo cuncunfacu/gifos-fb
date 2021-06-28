@@ -1,13 +1,15 @@
     .card-div-max-main {
         img {
-            max-width:318px;
             max-height:245px;
+            @media (min-width: $screen-lg) {
+                max-height:385px; 
+            }
             width: auto;
             height: auto;
         }
         .card-div-max-footer {
             flex-direction: row;
-
+            
             width: 318px;
             .card-div-max-left-txt {
                 align-self: flex-start;
@@ -19,7 +21,7 @@
                     margin-top: 14px;
                     margin-bottom: 0;
                     margin-left: 5px;
-        
+                    
                 }
                 h5 {
                     font-family: $montserrat;

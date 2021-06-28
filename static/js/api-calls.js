@@ -39,12 +39,12 @@ const getFavs = () => {
         if (favoriteIds !== undefined){
             return favoriteIds;
         } else{
-            console.log([])
             return []
         }
     } catch {
-        console.log('No Favorites');
         return [];
     }
 }
 export {getGif, addFav, removeFav, getFavs, searchGifs};
+
+

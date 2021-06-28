@@ -69,6 +69,7 @@
 }
 
 .card-gif-max {
+    z-index: 1000;
     position: fixed;
     top: 0;
     height: 100vh;
@@ -76,7 +77,7 @@
     background-color: rgba(255,255,255,0.90);;
     align-items: center;
     .cross {
-        margin-top: 64px;
+        margin-top: 105px;
         margin-right: 40px;
         margin-bottom: 78px;
         align-self: flex-end;

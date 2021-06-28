@@ -6,7 +6,7 @@ import {getFavs} from './api-calls.js';
 
 let trendingGifsComponentDiv = document.getElementById('trending-gifs-component');
 let navBarComponentDiv = document.getElementById('nav-bar-component');
-let favoritesMiniCards = document.getElementById('mygifs-mini-cards');
+let myFifsMiniCards = document.getElementById('mygifs-mini-cards');
 
 let favoriteGifsIds = [];
 favoriteGifsIds.push(['9lEGNc2hPkmevAciHq', 'l2olcETxXQjImhNcm2', '3oxQNhG6QjONT91Ga4', 'TSIsZjiAPbFBFNNaJj'])
@@ -19,7 +19,7 @@ trendingGifsComponent(trendingGifsComponentDiv);
 
 let favsIds = getFavs()
 if (favsIds.length != 0) {
-    miniCardsComponent(favoritesMiniCards, favsIds);
+    miniCardsComponent(myFifsMiniCards, favsIds);
 }else {
     // todo render no favss view
     let p = document.createElement('p');

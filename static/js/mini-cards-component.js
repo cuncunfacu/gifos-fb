@@ -1,4 +1,4 @@
-import {getGif} from './api-calls.js';
+import {getGif, getFavs, removeFav, addFav} from './api-calls.js';
 import {cardMaxComponent} from './card-max-component.js';
 import {apiKey, baseUrl} from './settings.js';
 const renderMinicard = (element, miniCardDiv, reloadOnMiniCardClose) => {
@@ -12,13 +12,63 @@ const renderMinicard = (element, miniCardDiv, reloadOnMiniCardClose) => {
         let hoverDiv = document.createElement('div');
         hoverDiv.id = 'hover-div-'+element.id
         hoverDiv.classList.add('container','hover-div')
+
+
+        let hoverDivButtonGrp = document.createElement('div');
+        hoverDivButtonGrp.classList.add('btn-grp','container');
+
+        let favSvg = document.createElement('img');
+        let favIds = getFavs();
+        if (favIds.indexOf(element.id) > -1) {
+            favSvg.src = './static/images/icon-fav-active.svg';
+        } else {
+            favSvg.src = './static/images/icon-fav-same-size.svg';
+        }
+
+        favSvg.addEventListener('click', () => {
+            let favIds = getFavs();
+            if (favIds.indexOf(element.id) > -1) {
+                removeFav(element.id);
+                favSvg.src = './static/images/icon-fav.svg';
+            } else {
+                addFav(element.id);
+                favSvg.src = './static/images/icon-fav-active.svg';
+            }
+        })
+        hoverDivButtonGrp.appendChild(favSvg);
+
+        let downloadSvg = document.createElement('img');
+        downloadSvg.src = './static/images/icon-download-hover.svg';
+        hoverDivButtonGrp.appendChild(downloadSvg);
+
+        let iconMax = document.createElement('img');
+        iconMax.src = './static/images/icon-max-hover.svg';
+        hoverDivButtonGrp.appendChild(iconMax);
+        
+        iconMax.addEventListener('click', () => {
+                cardMaxComponent(element.id, reloadOnMiniCardClose)
+        })
+
+        hoverDiv.appendChild(hoverDivButtonGrp);
+
+        let hoverDivTextGrp = document.createElement('div');
+        hoverDivTextGrp.classList.add('txt-grp', 'container');
+        
+        let userTxt = document.createElement('h6');
+        userTxt.innerText = element.username;
+        hoverDivTextGrp.appendChild(userTxt);
+        
+        let gifTitle = document.createElement('h5');    
+        gifTitle.innerText = element.title;
+        hoverDivTextGrp.appendChild(gifTitle);
+
+        hoverDiv.append(hoverDivTextGrp);
         imgDiv.appendChild(hoverDiv)
 
         //todo event listener for maxcard and hoover
         img.addEventListener('click', () => {
             if (screen.width < 1000){
                 cardMaxComponent(element.id, reloadOnMiniCardClose)
-                console.log('clickk')
             }
         })
 
