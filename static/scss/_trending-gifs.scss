@@ -49,20 +49,48 @@
                     width: 357px;
                 }
             }
-
+            .hover-div{
+                display: none;
+            }
             &:hover{
                 .hover-div {
                     @media (min-width: $screen-lg) {
-                        height: 275px;
-                        width: 357px;
-                        top: -50%;
-                        opacity: 0.6;
-                        background-color: $blue-1;
-                        position: relative;
-                        left: 0;
-                        z-index: 3;
+                    display: block;
+                    width: 357px;
+                    height: 275px;
+                    background: $blue-1-06;
+                    position: relative;
+                    top: -275px;
+                    left: 0;
+                    z-index: 2;
+                    .btn-grp{
+                        flex-direction: row;
+                        justify-content: flex-end;
+                        padding-top: 10px;
+                        padding-right: 10px;
+                        img {
+                            margin-left: 10px;
+                            height: 32px;
+                            width: 32px;
+                        }
                     }
-                }
+                    .txt-grp {
+                        h5 {
+                            margin: 0;
+                            color: white;
+                            font-family: $roboto;
+                            font-weight: bold;
+                            font-size: 16px;
+                        }
+                        h6 {
+                            margin: 0;
+                            color: white;
+                            font-family: $roboto;
+                            font-weight: bold;
+                            font-size: 16px;
+                        }
+                    }
+                }}
             }
         }
     }

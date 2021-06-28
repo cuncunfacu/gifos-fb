@@ -22,14 +22,19 @@ const navBarComponent = (navBarComponentDiv) => {
     logo.appendChild(logoImgDesk);
 
     let navLinks = document.createElement('nav');
-    
+    let navLinkSepLine1 = document.createElement('div');
+    navLinkSepLine1.classList.add('sep')
+    let navLinkSepLine2 = document.createElement('div');
+    navLinkSepLine2.classList.add('sep')
 
     let navUl = document.createElement('ul');
+    navUl.classList.add('container');
     
     let navDarkMode = document.createElement('li');
     navDarkMode.innerText = 'MODO NOCTURNO';
     // todo modo nocturno eventlistener
     navUl.appendChild(navDarkMode)
+    navUl.appendChild(navLinkSepLine1)
 
     let navFavorites = document.createElement('li');
     let navFavoritesA = document.createElement('a');
@@ -37,6 +42,7 @@ const navBarComponent = (navBarComponentDiv) => {
     navFavoritesA.innerText = 'FAVORITOS';
     navFavorites.appendChild(navFavoritesA);
     navUl.appendChild(navFavorites)
+    navUl.appendChild(navLinkSepLine2)
 
     let navMyGifs = document.createElement('li');
     let navMyGifsA = document.createElement('a');
@@ -48,7 +54,8 @@ const navBarComponent = (navBarComponentDiv) => {
 
     let btnCrearGifoLi = document.createElement('li');
     let btnCrearGifo = document.createElement('img');
-    btnCrearGifo.src = './static/images/button-crear-gifo.svg' ;
+    btnCrearGifo.src = './static/images/button-crear-gifo.svg';
+    btnCrearGifo.classList.add('crear-gif-btn');
     btnCrearGifoLi.appendChild(btnCrearGifo);
     navUl.appendChild(btnCrearGifoLi);
 

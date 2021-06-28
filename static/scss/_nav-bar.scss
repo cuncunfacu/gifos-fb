@@ -22,7 +22,6 @@ header {
               }
             }
           }
-    
           .hamburger-option {
             height: 15px;
             width: 15px;
@@ -54,5 +53,70 @@ header {
             }
           }
         }
+        @media (max-width: $screen-lg) {
+          .crear-gif-btn {
+            display: none;
+          }
+        }
       }
+}
+.nav-links {
+  color: black;
+  position: absolute;
+  background-color: rgba(87, 46, 229, 0.9);
+  width: 100vw;
+  height: 2000px;
+  z-index: 1;
+  margin-left: -20px;
+  margin-right: -20px;
+  .sep {
+    width: 41px;
+    height: 0.1px;
+    background-color: white;
+  }
+  ul {
+    align-items: center;
+    margin-top: 17px;
+    font-family: $montserrat;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 60px;
+    margin: 0;
+    li {
+      // height: 60px;
+      color: white;
+      a {
+        color: white;
+      }
+      img {
+        position: relative;
+        top: 20px;
+        margin-right: 156px;
+      }
+    }
+  }
+  @media (min-width: $screen-lg) {
+    display: block;
+    position: absolute;
+    width: initial;
+    top: 0;
+    right: 0;
+    background-color: initial;
+    margin-left: 0;
+    margin-right: 0;
+
+    ul {
+      li {
+        display: inline-block;
+        margin-left: 50px;
+        color: $blue-1;
+        a {
+          color: $blue-1;
+        }
+        img{
+          z-index: 0;
+        }
+      }
+    }
+  }
 }

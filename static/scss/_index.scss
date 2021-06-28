@@ -8,61 +8,6 @@ h2 {
   background-color: $blue-1;
 }
 
-.nav-links {
-  color: black;
-  position: absolute;
-  background-color: rgba(87, 46, 229, 0.9);
-  width: 100vw;
-  height: 2000px;
-  z-index: 1;
-  margin-left: -20px;
-  margin-right: -20px;
-
-  ul {
-    margin-top: 17px;
-    font-family: $montserrat;
-    font-weight: bold;
-    font-size: 15px;
-    line-height: 60px;
-    margin: 0;
-    li {
-      // height: 60px;
-      color: white;
-      a {
-        color: white;
-      }
-      img {
-        position: relative;
-        top: 20px;
-        margin-right: 156px;
-      }
-    }
-  }
-  @media (min-width: $screen-lg) {
-    display: block;
-    position: absolute;
-    width: initial;
-    top: 0;
-    right: 0;
-    background-color: initial;
-    margin-left: 0;
-    margin-right: 0;
-
-    ul {
-      li {
-        display: inline-block;
-        margin-left: 50px;
-        color: $blue-1;
-        a {
-          color: $blue-1;
-        }
-        img{
-          z-index: 0;
-        }
-      }
-    }
-  }
-}
 header {
 //   .nav-bar {
 //     margin-left: 20px;
