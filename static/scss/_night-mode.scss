@@ -1,0 +1,168 @@
+.body-night-mode {
+    .line {
+        background-color: black;
+    }
+    background-color: $dm-gray1;
+    header {
+        .nav-bar {        
+            .nav-header {
+              .logo {
+                @media (min-width: $screen-lg) {
+                  #logo-mobile {
+                    display: none;
+                  }
+                    margin-left: 156px;
+                }
+                @media (max-width: $screen-lg) {
+                  #logo-desktop {
+                    display: none;
+                  }
+                }
+              }
+              .hamburger-option {
+                height: 15px;
+                width: 15px;
+                margin-right: 6px;
+                justify-content: space-between;
+                &.ham-untoggled {
+                  span {
+                    background-color: white;
+                  }
+                }
+                &.ham-toggled {
+                  #ham-span-1 {
+                    background-color: white;
+                  }
+                  #ham-span-2 {
+                    background-color: white;
+                  }
+                }
+                @media (min-width: $screen-lg) {
+                  display: none;
+                }
+              }
+            }
+            @media (max-width: $screen-lg) {
+              .crear-gif-btn {
+                display: none;
+              }
+            }
+          }
+          .nav-links {
+            color: black;
+            background-color: black;
+            ul {
+              li {
+                // height: 60px;
+                color: white;
+                a {
+                  color: white;
+                }
+              }
+            }
+            @media (min-width: $screen-lg) {
+              ul {
+                li {
+                  color: white;
+                  a {
+                    color: white;
+                  }
+                }
+              }
+            }
+          }
+          .search-section {
+            h1 {
+              color: white;
+            }
+            .search-and-results {
+              border: 1px solid white;
+              .search-bar {
+                input {
+                background-color: $dm-gray1;
+                color: white;
+                }
+              }
+              .search-result-line {
+                background-color: $gray-2;
+              }
+              .results {
+                .suggested-results {
+                  li {
+                    color: white;
+                  }
+                }
+              }
+            }
+            .trending {
+              margin-top: 31px;
+              color: white;
+              width: 67%;
+              h2 {
+                font-size: 16px;
+                font-weight: bold;
+                line-height: 25px;
+                @media (min-width: $screen-lg) {
+                  font-size: 18px;
+                }
+              }
+              p {
+                font-family: $roboto;
+                font-size: 14px;
+                line-height: 25px;
+                @media (min-width: $screen-lg) {
+                  font-size: 16px;
+                }
+              }
+            }
+          }
+    }
+    main {
+        .trending-gifos-section{
+            background-color: $dm-gray2;
+            h2{
+                color: white;
+            }
+            p {
+                color: white;
+            }
+        }
+        .search-result-title {
+            h2 {
+              color: white;
+            }
+          }
+    }
+    footer {
+        .share-section {
+          p {
+            color: white;
+          }
+        }
+        .copyright {
+          p {
+            color: white;
+          }
+        }
+      }
+      .card-gif-max {
+        background-color: rgba(0,0,0,0.90);
+        .card-div-max-main {
+            .card-div-max-footer {
+                .card-div-max-left-txt {
+                    h6 {
+                        color: white;
+                    }
+                    h5 {
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+    .favorites-header, .mygifs-header {
+        h1 {
+        color: white;
+        }
+    }
+}

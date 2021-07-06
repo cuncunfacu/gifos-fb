@@ -3,7 +3,7 @@ import {baseUrl, apiKey} from './settings.js';
 import {cardMaxComponent} from './card-max-component.js';
 
 const trendingGifsComponent = async (trendingGifsComponentDiv) => {
-    const url = baseUrl + `/gifs/trending?api_key=${apiKey}&limit=12`;
+    const url = baseUrl + `/gifs/trending?api_key=${apiKey}&limit=13`;
 
     let h2 = document.createElement('h2');
     h2.innerText = 'Tending GIFOS';

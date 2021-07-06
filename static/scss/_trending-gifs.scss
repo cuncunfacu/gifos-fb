@@ -1,6 +1,6 @@
 .trending-gifos-section{
     margin-top: 54px;
-    // height: 430px;
+    height: 430px;
     margin-bottom: -10px;
     background-color: $gray-1;
     align-items: center;
@@ -97,37 +97,4 @@
             }
         }
     }
-}
-
-.card-gif-max {
-    z-index: 1000;
-    position: fixed;
-    top: 0;
-    height: 100vh;
-    width: 100%;
-    background-color: rgba(255,255,255,0.90);;
-    align-items: center;
-    .cross {
-        margin-top: 105px;
-        margin-right: 40px;
-        margin-bottom: 78px;
-        align-self: flex-end;
-        height: 14px;
-        width: 14px;
-        .cross-div-1 {
-            width: 100%;
-            height: 2px;
-            background-color: $blue-1;
-            transform: rotate(45deg) translate(1.5px, 1.5px);
-        }
-        .cross-div-2 {
-            width: 100%;
-            height: 2px;
-            background-color: $blue-1;
-            transform: rotate(-45deg);
-        }
-    }
-
-
-
 }
