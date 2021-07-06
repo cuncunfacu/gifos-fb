@@ -33,6 +33,40 @@ const removeFav = (id) => {
     localStorage.setItem('favoriteGifsIds', JSON.stringify((favoriteIds)));
 }
 
+const isDarkMode = () => {
+    let darkMode;
+    try {
+        darkMode = JSON.parse(localStorage.getItem('isDarkMode'))
+        if (darkMode === null) {
+            return false
+        }
+    } catch {
+        return false
+    }
+    return darkMode;
+}
+
+const renderDarkMode = (mode) => {
+    let body = document.getElementById('body');
+    if (!mode == true) {
+        body.classList.add('body-night-mode');
+    } else {
+        body.classList.remove('body-night-mode');
+    }
+}
+
+const toggleDarkMode = () => {
+    let mode = isDarkMode();
+    let darkModeLi = document.getElementById('dark-mode-li');
+
+    localStorage.setItem('isDarkMode', JSON.stringify(!mode))
+    if (mode) {
+        darkModeLi.innerText = 'MODO NOCTURNO';
+    } else {
+        darkModeLi.innerText = 'MODO DIURNO';
+    }
+    renderDarkMode(mode)
+}
 const getFavs = () => {
     try {
         let favoriteIds = JSON.parse(localStorage.favoriteGifsIds)[0];
@@ -45,6 +79,6 @@ const getFavs = () => {
         return [];
     }
 }
-export {getGif, addFav, removeFav, getFavs, searchGifs};
+export {getGif, addFav, removeFav, getFavs, searchGifs, toggleDarkMode, isDarkMode, renderDarkMode};
 
 

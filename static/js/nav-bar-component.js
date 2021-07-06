@@ -1,3 +1,5 @@
+import {toggleDarkMode, renderDarkMode, isDarkMode} from './api-calls.js';
+
 const navBarComponent = (navBarComponentDiv) => {
     let navHeader = document.createElement('div');
     navHeader.classList.add('nav-header', 'container');
@@ -31,8 +33,20 @@ const navBarComponent = (navBarComponentDiv) => {
     // navUl.classList.add('container');
     
     let navDarkMode = document.createElement('li');
-    navDarkMode.innerText = 'MODO NOCTURNO';
+    navDarkMode.id = "dark-mode-li";
+
+    if (isDarkMode()) {
+        navDarkMode.innerText = "MODO DIURNO";
+    } else {
+        navDarkMode.innerText = "MODO NOCTURNO";
+    }
     // todo modo nocturno eventlistener
+    navDarkMode.addEventListener('click', () => {
+        toggleDarkMode();
+    })
+
+
+
     navUl.appendChild(navDarkMode)
     navUl.appendChild(navLinkSepLine1)
 
