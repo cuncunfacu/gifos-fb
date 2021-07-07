@@ -10,7 +10,6 @@ let myFifsMiniCards = document.getElementById('mygifs-mini-cards');
 
 let favoriteGifsIds = [];
 favoriteGifsIds.push(['9lEGNc2hPkmevAciHq', 'l2olcETxXQjImhNcm2', '3oxQNhG6QjONT91Ga4', 'TSIsZjiAPbFBFNNaJj'])
-localStorage.clear()
 localStorage.setItem('favoriteGifsIds', JSON.stringify(favoriteGifsIds))
 
 

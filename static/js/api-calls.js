@@ -48,7 +48,7 @@ const isDarkMode = () => {
 
 const renderDarkMode = (mode) => {
     let body = document.getElementById('body');
-    if (!mode == true) {
+    if (mode == true) {
         body.classList.add('body-night-mode');
     } else {
         body.classList.remove('body-night-mode');
@@ -60,12 +60,12 @@ const toggleDarkMode = () => {
     let darkModeLi = document.getElementById('dark-mode-li');
 
     localStorage.setItem('isDarkMode', JSON.stringify(!mode))
-    if (mode) {
-        darkModeLi.innerText = 'MODO NOCTURNO';
-    } else {
+    if (!mode) {
         darkModeLi.innerText = 'MODO DIURNO';
+    } else {
+        darkModeLi.innerText = 'MODO NOCTURNO';
     }
-    renderDarkMode(mode)
+    renderDarkMode(!mode)
 }
 const getFavs = () => {
     try {

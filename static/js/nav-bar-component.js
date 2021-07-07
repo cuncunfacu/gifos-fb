@@ -45,7 +45,7 @@ const navBarComponent = (navBarComponentDiv) => {
         toggleDarkMode();
     })
 
-
+    renderDarkMode(isDarkMode())
 
     navUl.appendChild(navDarkMode)
     navUl.appendChild(navLinkSepLine1)
