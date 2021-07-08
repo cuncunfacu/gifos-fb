@@ -1,14 +1,14 @@
 import {trendingGifsComponent} from './trending-gifs-component.js';
 import {navBarComponent} from './nav-bar-component.js';
 import {miniCardsComponent} from './mini-cards-component.js';
-import {getFavs} from './api-calls.js';
+import {getFavs, isDarkMode, renderDarkMode} from './api-calls.js';
 
 let trendingGifsComponentDiv = document.getElementById('trending-gifs-component');
 let navBarComponentDiv = document.getElementById('nav-bar-component');
 let favoritesMiniCards = document.getElementById('favorites-mini-cards');
 
-
 navBarComponent(navBarComponentDiv);
+renderDarkMode(isDarkMode());
 trendingGifsComponent(trendingGifsComponentDiv);
 
 let favsIds = getFavs()

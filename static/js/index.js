@@ -2,9 +2,10 @@ import {apiKey, baseUrl} from './settings.js';
 import {trendingGifsComponent} from './trending-gifs-component.js';
 import {navBarComponent} from './nav-bar-component.js';
 import {miniCardsComponent} from './mini-cards-component.js'
-import { getGif, searchGifs } from './api-calls.js';
+import { getGif, searchGifs, renderDarkMode, isDarkMode } from './api-calls.js';
 
 let searchGray = document.getElementById('search-gray');
+
 let searchBlue = document.getElementById('search-blue');
 let resultsDiv = document.getElementById('results-div');
 let searchResultLine = document.getElementById('search-result-line');
@@ -13,9 +14,15 @@ let trendingGifsComponentDiv = document.getElementById('trending-gifs-component'
 let navBarComponentDiv = document.getElementById('nav-bar-component');
 let searchResultsDiv = document.getElementById('search-results-div')
 
-
+let darkMode = isDarkMode();
 // api calls
-
+if (darkMode){
+    searchGray.src="./static/images/icon-search-modo-noct.svg";
+    searchBlue.src="./static/images/icon-search-modo-noct.svg";
+} else {
+    searchGray.src="./static/images/icon-search-mod-gray.svg";
+    searchBlue.src="./static/images/icon-search.svg";
+}
 let getTrending = async (baseUrl, apiKey) => {
     const url = baseUrl + `/trending/searches?api_key=${apiKey}`;
     try {
@@ -60,6 +67,7 @@ let getSearchSuggestions = async (searchString, baseUrl, apiKey) => {
 
 // on page load
 searchGray.style.opacity = 0;
+renderDarkMode(darkMode);
 getTrending(baseUrl, apiKey);
 
 let searchInput = document.getElementById('search-input');
@@ -89,7 +97,11 @@ searchInput.addEventListener('input', async (event) => {
             li.classList.add('container');
             
             let searchImg = document.createElement('img');
-            searchImg.src = './static/images/icon-search-mod-gray.svg';
+            if (darkMode) {
+                searchImg.src = './static/images/icon-search-modo-noct.svg';
+            } else {
+                searchImg.src = './static/images/icon-search-mod-gray.svg';
+            }
             
             let sugestedTextSpan = document.createElement('span');
             sugestedTextSpan.innerText = sugestedString;
@@ -99,7 +111,11 @@ searchInput.addEventListener('input', async (event) => {
                 searchInput.value = sugestedString;
                 resultsDiv.innerHTML = '';
                 searchResultLine.classList.add('hide')
-                searchBlue.src = './static/images/close.svg';
+                if (darkMode) {
+                    searchBlue.src = './static/images/close-modo-noct.svg';
+                } else {
+                    searchBlue.src = './static/images/close.svg';
+                }
                 searchBlue.classList.remove('hide');
                 searchBlue.addEventListener('click', e => location.reload())
             })
@@ -142,10 +158,16 @@ const renderSearch = async (searchString) => {
 
 
     let resultsData = await searchGifs(searchString);
-    miniCardsComponent(searchResultsMiniCards, null ,resultsData, false)
-
+    miniCardsComponent(searchResultsMiniCards, null ,resultsData.slice(0,12), false)
+    let verMasBtn = document.createElement('button');
+    verMasBtn.innerText = 'Ver mas'
+    verMasBtn.addEventListener('click', () => {
+        miniCardsComponent(searchResultsMiniCards, null ,resultsData.slice(12), false)
+        verMasBtn.classList.add('hide')
+    })
     rdiv.appendChild(searchResultsTitle);
     rdiv.appendChild(searchResultsMiniCards);
+    rdiv.appendChild(verMasBtn)
 
     searchResultsDiv.appendChild(rdiv);
 }

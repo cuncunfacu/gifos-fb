@@ -1,6 +1,7 @@
 import {toggleDarkMode, renderDarkMode, isDarkMode} from './api-calls.js';
 
 const navBarComponent = (navBarComponentDiv) => {
+    const darkMode = isDarkMode();
     let navHeader = document.createElement('div');
     navHeader.classList.add('nav-header', 'container');
 
@@ -12,13 +13,21 @@ const navBarComponent = (navBarComponentDiv) => {
     logo.classList.add('logo');
 
     let logoImg = document.createElement('img');
-    logoImg.src = './static/images/logo-mobile.svg';
+    if (darkMode){
+        logoImg.src = './static/images/logo-mobile-modo-noct.svg';
+    } else {
+        logoImg.src = './static/images/logo-mobile.svg';
+    }
     logoImg.alt = 'logo';
     logoImg.id = 'logo-mobile';
     logo.appendChild(logoImg);
 
     let logoImgDesk = document.createElement('img');
-    logoImgDesk.src = './static/images/logo-desktop.svg';
+    if (darkMode){
+        logoImgDesk.src = './static/images/Logo-modo-noc.svg';
+    } else {
+        logoImgDesk.src = './static/images/logo-desktop.svg';
+    }
     logoImgDesk.alt = 'logo';
     logoImgDesk.id = 'logo-desktop';
     logo.appendChild(logoImgDesk);
@@ -35,7 +44,7 @@ const navBarComponent = (navBarComponentDiv) => {
     let navDarkMode = document.createElement('li');
     navDarkMode.id = "dark-mode-li";
 
-    if (isDarkMode()) {
+    if (darkMode) {
         navDarkMode.innerText = "MODO DIURNO";
     } else {
         navDarkMode.innerText = "MODO NOCTURNO";
@@ -44,8 +53,6 @@ const navBarComponent = (navBarComponentDiv) => {
     navDarkMode.addEventListener('click', () => {
         toggleDarkMode();
     })
-
-    renderDarkMode(isDarkMode())
 
     navUl.appendChild(navDarkMode)
     navUl.appendChild(navLinkSepLine1)

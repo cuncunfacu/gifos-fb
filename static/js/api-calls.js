@@ -8,7 +8,7 @@ const getGif = async (gifId) => {
 }
 
 const searchGifs = async (searchString, offset=12) => {
-    const url = baseUrl + `/gifs/search?api_key=${apiKey}&q=${searchString}&limit=12&offset=${offset}`;
+    const url = baseUrl + `/gifs/search?api_key=${apiKey}&q=${searchString}&offset=${offset}`;
     let response = await fetch(url);
     let data = await response.json();
     return data.data
@@ -59,13 +59,8 @@ const toggleDarkMode = () => {
     let mode = isDarkMode();
     let darkModeLi = document.getElementById('dark-mode-li');
 
-    localStorage.setItem('isDarkMode', JSON.stringify(!mode))
-    if (!mode) {
-        darkModeLi.innerText = 'MODO DIURNO';
-    } else {
-        darkModeLi.innerText = 'MODO NOCTURNO';
-    }
-    renderDarkMode(!mode)
+    localStorage.setItem('isDarkMode', JSON.stringify(!mode));
+    location.reload();
 }
 const getFavs = () => {
     try {
