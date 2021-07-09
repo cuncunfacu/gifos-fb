@@ -159,15 +159,23 @@ const renderSearch = async (searchString) => {
 
     let resultsData = await searchGifs(searchString);
     miniCardsComponent(searchResultsMiniCards, null ,resultsData.slice(0,12), false)
-    let verMasBtn = document.createElement('button');
-    verMasBtn.innerText = 'Ver mas'
-    verMasBtn.addEventListener('click', () => {
+    let viewMoreBtn = document.createElement('button');
+    let viewMoreDiv = document.createElement('div');
+    viewMoreDiv.classList.add('view-more-div', 'container');
+    viewMoreBtn.innerText = 'Ver mas';
+    viewMoreBtn.classList.add('view-more-btn');
+    viewMoreBtn.addEventListener('click', () => {
         miniCardsComponent(searchResultsMiniCards, null ,resultsData.slice(12), false)
-        verMasBtn.classList.add('hide')
+        viewMoreBtn.classList.add('hide')
     })
+    viewMoreDiv.appendChild(viewMoreBtn)
+
     rdiv.appendChild(searchResultsTitle);
     rdiv.appendChild(searchResultsMiniCards);
-    rdiv.appendChild(verMasBtn)
+
+    if (resultsData.length > 12){
+        rdiv.appendChild(viewMoreDiv)
+    }
 
     searchResultsDiv.appendChild(rdiv);
 }

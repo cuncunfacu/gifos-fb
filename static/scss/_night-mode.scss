@@ -132,6 +132,15 @@
               color: white;
             }
           }
+        .view-more-div {
+          flex-direction: row;
+          justify-content: center;
+          button {
+              border: 1px solid white;
+              background-color: $dm-gray1;
+              color: white;
+          }
+      }
     }
     footer {
         .share-section {

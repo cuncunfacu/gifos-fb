@@ -20,6 +20,18 @@ trendingGifsComponent(trendingGifsComponentDiv);
 let favsIds = getFavs()
 if (favsIds.length != 0) {
     miniCardsComponent(myFifsMiniCards, favsIds);
+    let viewMoreBtn = document.createElement('button');
+    let viewMoreDiv = document.getElementById('view-more-div');
+    viewMoreBtn.innerText = 'Ver mas';
+    viewMoreBtn.classList.add('view-more-btn');
+    viewMoreBtn.addEventListener('click', () => {
+        miniCardsComponent(favoritesMiniCards, favsIds.slice(12), null, true);
+        viewMoreBtn.classList.add('hide')
+    })
+
+    if (favsIds.length > 12) {
+        viewMoreDiv.appendChild(viewMoreBtn)
+    }
 }else {
     // todo render no favss view
     let p = document.createElement('p');
