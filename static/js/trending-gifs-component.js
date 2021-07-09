@@ -1,4 +1,4 @@
-import {getGif, getFavs, addFav, removeFav} from './api-calls.js';
+import {getGif, getFavs, addFav, removeFav, isDarkMode} from './api-calls.js';
 import {baseUrl, apiKey} from './settings.js';
 import {cardMaxComponent} from './card-max-component.js';
 
@@ -17,8 +17,42 @@ const trendingGifsComponent = async (trendingGifsComponentDiv) => {
     sliderBtnL.classList.add('slider-l');
     let sliderBtnR = document.createElement('img');
     sliderBtnR.classList.add('slider-r');
-    sliderBtnL.src = './static/images/button-slider-left.svg';
-    sliderBtnR.src = './static/images/Button-slider-right.svg';
+
+    if (!isDarkMode()) {
+        sliderBtnL.src = './static/images/button-slider-left.svg';
+        sliderBtnR.src = './static/images/Button-slider-right.svg';
+
+        sliderBtnL.addEventListener('mouseover', () => {
+            sliderBtnL.src = './static/images/button-slider-left-hover.svg';
+        })
+        sliderBtnL.addEventListener('mouseout', () => {
+            sliderBtnL.src = './static/images/button-slider-left.svg';
+        })
+    
+        sliderBtnR.addEventListener('mouseover', () => {
+            sliderBtnR.src = './static/images/Button-slider-right-hover.svg';
+        })
+        sliderBtnR.addEventListener('mouseout', () => {
+            sliderBtnR.src = './static/images/Button-slider-right.svg';
+        })
+    } else {
+        sliderBtnL.src = './static/images/button-slider-left-md-noct.svg';
+        sliderBtnR.src = './static/images/Button-slider-right-md-noct.svg';
+
+        sliderBtnL.addEventListener('mouseover', () => {
+            sliderBtnL.src = './static/images/button-slider-left-hover.svg';
+        })
+        sliderBtnL.addEventListener('mouseout', () => {
+            sliderBtnL.src = './static/images/button-slider-left-md-noct.svg';
+        })
+    
+        sliderBtnR.addEventListener('mouseover', () => {
+            sliderBtnR.src = './static/images/Button-slider-right-hover.svg';
+        })
+        sliderBtnR.addEventListener('mouseout', () => {
+            sliderBtnR.src = './static/images/Button-slider-right-md-noct.svg';
+        })
+    }
 
     let carrDiv = document.createElement('div');
     carrDiv.classList.add('carr-div', 'container');

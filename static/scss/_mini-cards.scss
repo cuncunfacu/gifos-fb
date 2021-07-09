@@ -90,5 +90,10 @@
         width: 127px;
         height: 50px;
         background-color: white;
+
+        &:hover {
+            background-color: #572EE5;
+            color: white;
+        }
     }
 }

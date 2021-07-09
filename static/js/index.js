@@ -29,14 +29,21 @@ let getTrending = async (baseUrl, apiKey) => {
         const response = await fetch(url);
         let data = await response.json()
         const trendingCatArr = data.data.slice(0,5)
-        let trendingCat = trendingCatArr[0];
-        for (let index = 1; index < trendingCatArr.length; index++) {
-            const element = trendingCatArr[index];
-            trendingCat = trendingCat + ', '+ element
-        }
-        // console.log(trendingCat)
         let trendingP = document.getElementById('trending-categories')
-        trendingP.innerText = trendingCat
+        for (let index = 1; index < trendingCatArr.length; index++) {
+            let span = document.createElement('span')
+            span.id = trendingCatArr[index];
+            if (index == 4) {
+                span.innerText = trendingCatArr[index];
+            } else {
+                span.innerText = trendingCatArr[index] + ', ';
+            }
+            span.addEventListener('click', () => {
+                renderSearch(trendingCatArr[index].replace(' ','+'))
+            })
+            trendingP.appendChild(span);
+        }
+        // trendingP.innerText = trendingP.innerText.slice(0,-1)
     } catch (error) {
         console.log(error)
     }
@@ -108,16 +115,8 @@ searchInput.addEventListener('input', async (event) => {
 
             li.addEventListener('click', () => {
                 renderSearch(sugestedString.replace(' ','+'))
-                searchInput.value = sugestedString;
                 resultsDiv.innerHTML = '';
                 searchResultLine.classList.add('hide')
-                if (darkMode) {
-                    searchBlue.src = './static/images/close-modo-noct.svg';
-                } else {
-                    searchBlue.src = './static/images/close.svg';
-                }
-                searchBlue.classList.remove('hide');
-                searchBlue.addEventListener('click', e => location.reload())
             })
             li.appendChild(searchImg);
             li.appendChild(sugestedTextSpan);
@@ -131,8 +130,16 @@ searchInput.addEventListener('input', async (event) => {
 })
 
 const renderSearch = async (searchString) => {
-
-    console.log('hey')
+    let tc = document.getElementById('trending-container');
+    tc.remove()
+    if (darkMode) {
+        searchBlue.src = './static/images/close-modo-noct.svg';
+    } else {
+        searchBlue.src = './static/images/close.svg';
+    }
+    searchBlue.classList.remove('hide');
+    searchBlue.addEventListener('click', e => location.reload())
+    searchInput.value = searchString.replace('+',' ');
     let rdiv = document.getElementById('removable-div-results');
     if (rdiv){
         rdiv.remove()
