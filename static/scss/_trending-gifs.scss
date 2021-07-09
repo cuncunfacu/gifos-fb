@@ -1,7 +1,7 @@
 .trending-gifos-section{
     margin-top: 54px;
     height: 430px;
-    margin-bottom: -10px;
+    // margin-bottom: -10px;
     background-color: $gray-1;
     align-items: center;
     @media (min-width: $screen-lg) {
@@ -27,74 +27,92 @@
             font-size: 18px;
         }
     }
-    .trending-carrousel{
-        flex-direction: row;
-        justify-content: flex-start;
+    .carr-div {
         width: 100%;
-        overflow-x: scroll;
-        margin-top: 32px;
-        @media (min-width) {
-            margin-top: 53px;
-            width: 100%;
+        flex-direction: row;
+        overflow-y: visible;
+        .trending-carrousel{
             overflow-x: scroll;
-        }
-        .trending-card{
-            margin-left: 22px;
-            margin-right: 22px;
-            img{
-                height: 187px;
-                width: 243px;
-                @media (min-width: $screen-lg) {
-                    height: 275px;
-                    width: 357px;
+            flex-direction: row;
+            justify-content: flex-start;
+            margin-top: 32px;
+            .trending-card{
+                margin-left: 20px;
+                margin-right: 0;
+                img{
+                    height: 187px;
+                    width: 243px;
+                    @media (min-width: $screen-lg) {
+                        height: 275px;
+                        width: 357px;
+                        margin-left: 0;
+                        margin-right: 20px;
+                    }
+                }
+                .hover-div{
+                    display: none;
+                }
+                &:hover{
+                    .hover-div {
+                        @media (min-width: $screen-lg) {
+                        display: block;
+                        overflow: visible;
+                        width: 357px;
+                        height: 275px;
+                        background: $blue-1-06;
+                        position: relative;
+                        margin-left: 0;
+                        margin-right: 10px;
+                        top: -275px;
+                        left: 0;
+                        z-index: 2;
+                        .btn-grp{
+                            flex-direction: row;
+                            justify-content: flex-end;
+                            padding-top: 10px;
+                            padding-right: 10px;
+                            img {
+                                margin-left: 10px;
+                                height: 32px;
+                                width: 32px;
+                            }
+                        }
+                        .txt-grp {
+                            margin-top: 140px;
+                            text-align: start;
+                            margin-left: 18.5px;
+                            h5 {
+                                margin: 0;
+                                color: white;
+                                font-family: $roboto;
+                                font-weight: bold;
+                                font-size: 16px;
+                            }
+                            h6 {
+                                margin: 0;
+                                color: white;
+                                font-family: $roboto;
+                                font-weight: bold;
+                                font-size: 16px;
+                            }
+                        }
+                    }}
                 }
             }
-            .hover-div{
-                display: none;
+        }
+        .slider-l, .slider-r {
+            display: none;
+            @media (min-width: 1400px) {
+                display: initial;
+                align-self: flex-start;
+                margin-top: 150px;
             }
-            &:hover{
-                .hover-div {
-                    @media (min-width: $screen-lg) {
-                    display: block;
-                    width: 357px;
-                    height: 275px;
-                    background: $blue-1-06;
-                    position: relative;
-                    top: -275px;
-                    left: 0;
-                    z-index: 2;
-                    .btn-grp{
-                        flex-direction: row;
-                        justify-content: flex-end;
-                        padding-top: 10px;
-                        padding-right: 10px;
-                        img {
-                            margin-left: 10px;
-                            height: 32px;
-                            width: 32px;
-                        }
-                    }
-                    .txt-grp {
-                        margin-top: 140px;
-                        text-align: start;
-                        margin-left: 18.5px;
-                        h5 {
-                            margin: 0;
-                            color: white;
-                            font-family: $roboto;
-                            font-weight: bold;
-                            font-size: 16px;
-                        }
-                        h6 {
-                            margin: 0;
-                            color: white;
-                            font-family: $roboto;
-                            font-weight: bold;
-                            font-size: 16px;
-                        }
-                    }
-                }}
-            }
+        }
+        .slider-l {
+            margin-left: 95px;
+        }
+        .slider-r {
+            margin-right: 95px;
         }
     }
 }

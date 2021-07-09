@@ -13,6 +13,17 @@ const trendingGifsComponent = async (trendingGifsComponentDiv) => {
     p.innerText = 'Mira los últimos GIFOS de nuestra comunidad.';
     trendingGifsComponentDiv.appendChild(p);
 
+    let sliderBtnL = document.createElement('img');
+    sliderBtnL.classList.add('slider-l');
+    let sliderBtnR = document.createElement('img');
+    sliderBtnR.classList.add('slider-r');
+    sliderBtnL.src = './static/images/button-slider-left.svg';
+    sliderBtnR.src = './static/images/Button-slider-right.svg';
+
+    let carrDiv = document.createElement('div');
+    carrDiv.classList.add('carr-div', 'container');
+
+
     let trendingCarrouselDiv = document.createElement('div');
     trendingCarrouselDiv.id = 'trending-carrousel';
     trendingCarrouselDiv.classList.add('trending-carrousel', 'container');
@@ -97,9 +108,17 @@ const trendingGifsComponent = async (trendingGifsComponentDiv) => {
         }
     } catch (error) {
         console.log(error)
-        
     }
-    trendingGifsComponentDiv.appendChild(trendingCarrouselDiv)
+    sliderBtnR.addEventListener('click', () => {
+        trendingCarrouselDiv.scrollLeft += 300;
+    })
+    sliderBtnL.addEventListener('click', () => {
+        trendingCarrouselDiv.scrollLeft -= 300;
+    })
+    carrDiv.appendChild(sliderBtnL);
+    carrDiv.appendChild(trendingCarrouselDiv)
+    carrDiv.appendChild(sliderBtnR);
+    trendingGifsComponentDiv.appendChild(carrDiv)
 }
 
 export {trendingGifsComponent};
