@@ -80,6 +80,9 @@ const navBarComponent = (navBarComponentDiv) => {
     btnCrearGifoLi.appendChild(btnCrearGifo);
     navUl.appendChild(btnCrearGifoLi);
 
+    btnCrearGifo.addEventListener('click', () => {
+        window.location.href = '/create-gif.html'
+    })
     navLinks.appendChild(navUl);
     navLinks.classList.add('hide', 'nav-links', 'container');
 
