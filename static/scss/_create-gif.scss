@@ -1,8 +1,90 @@
 .create-gif {
-    .sep-line {
-        height: 7px;
-        width: 796px;
-        border-radius: 30px;
-        background-color: #572EE5;
+    align-items: center;
+    .camara-svgs {
+        width: 100%;
+        position: absolute;
+        z-index: -1;
+        top: 218px;
+        .camara {
+            align-self: flex-start;
+            justify-self: center;
+            margin-left: 165px;
+            .light-svg {
+                position: relative;
+                top: -15px;
+            }
+        }
+        .cinta {
+            position: relative;
+            align-self: flex-end;
+            justify-self: center;
+            margin-right: 221px;
+            top: 115px;
+        }
+    }
+    .content-box {
+        justify-content: center;
+        align-items: center;
+        width: 688px;
+        height: 390px;
+        border: 1px solid #572EE5;
+        margin-bottom: 24px;
+        .content {
+            width: 480px;
+            h1 {
+                font-family: $montserrat;
+                font-weight: bold;
+                font-size: 25px;
+                color: #572EE5;
+                text-align: center;
+                line-height: 35px;
+
+                    span {
+                        color: $green-1;
+                        }
+            }
+            p {
+                font-family: $roboto;
+                font-size: 16px;
+                text-align: center;
+                line-height: 29px;
+            }
+        }
+    }
+    .controls {
+        .ovals {
+            img {
+                margin-left: 13px;
+                margin-right: 13px;
+                margin-bottom: 20px;
+            }
+        }
+        .sep-line {
+            height: 7px;
+            width: 796px;
+            border-radius: 30px;
+            background-color: #572EE5;
+        }
+        
+    }
+    .btn-action {
+        margin-top: 20px;
+        font-family: $montserrat;
+        font-weight: bold;
+        font-size: 13px;
+        color: #572EE5;
+        letter-spacing: 0;
+        text-align: center;
+        border: 1px solid #572EE5;
+        border-radius: 25px;
+        border-radius: 25px;
+        width: 127px;
+        height: 50px;
+        background-color: white;
+
+        &:hover {
+            background-color: #572EE5;
+            color: white;
+        }
     }
 }
