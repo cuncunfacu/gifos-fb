@@ -11,7 +11,6 @@ navBarComponent(navBarComponentDiv);
 renderDarkMode(isDarkMode());
 trendingGifsComponent(trendingGifsComponentDiv);
 
-
 let favsIds = getFavs()
 if (favsIds.length != 0) {
     miniCardsComponent(favoritesMiniCards, favsIds.slice(0,12), null, true);

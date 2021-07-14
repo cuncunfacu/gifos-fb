@@ -16,10 +16,7 @@ const searchGifs = async (searchString, offset=12) => {
 const addFav = (id) => {
     let ids = getFavs()
     ids.push(id);
-    
-    let favoriteIds = [];
-    favoriteIds.push(ids);
-    localStorage.setItem('favoriteGifsIds', JSON.stringify((favoriteIds)));
+    localStorage.setItem('favoriteGifsIds', JSON.stringify((ids)));
 }
 
 const removeFav = (id) => {
@@ -64,7 +61,7 @@ const toggleDarkMode = () => {
 }
 const getFavs = () => {
     try {
-        let favoriteIds = JSON.parse(localStorage.favoriteGifsIds)[0];
+        let favoriteIds = JSON.parse(localStorage.favoriteGifsIds);
         if (favoriteIds !== undefined){
             return favoriteIds;
         } else{
@@ -74,6 +71,41 @@ const getFavs = () => {
         return [];
     }
 }
-export {getGif, addFav, removeFav, getFavs, searchGifs, toggleDarkMode, isDarkMode, renderDarkMode};
+const getMyGifs = () => {
+    try {
+        let myGifs = JSON.parse(localStorage.getItem('myGifs'));
+        if (myGifs !== undefined && myGifs !== null){
+            return myGifs;
+        } else{
+            return []
+        }
+    } catch (err) {
+        console.log(err)
+        return [];
+    }
+}
+
+const saveMyGif = (data) => {
+    let myGifs = getMyGifs();
+    myGifs.push(data)
+    localStorage.setItem('myGifs', JSON.stringify(myGifs));
+}
+const uploadGif = async (blob) =>  {
+    const uploadUrl = `https://upload.giphy.com/v1/gifs?api_key=${apiKey}`;
+    let form = new FormData();
+    console.log(blob)
+    form.append('file', blob, 'myGif.gif');
+    let response = await fetch(uploadUrl, {
+        body: form,
+        method: "post"
+    })
+    let data = await response.json();
+    if (response.status == 200) {
+        saveMyGif(data.data.id)
+    } else {
+        console.log('Hobo un error: '+ response.status)
+    }
+}
+export {getGif, addFav, removeFav, getFavs, searchGifs, toggleDarkMode, isDarkMode, renderDarkMode, uploadGif, getMyGifs};
 
 
