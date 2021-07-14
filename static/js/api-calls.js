@@ -102,8 +102,10 @@ const uploadGif = async (blob) =>  {
     let data = await response.json();
     if (response.status == 200) {
         saveMyGif(data.data.id)
+        return true
     } else {
-        console.log('Hobo un error: '+ response.status)
+        console.log('Hubo un error: '+ response.status)
+        return false
     }
 }
 export {getGif, addFav, removeFav, getFavs, searchGifs, toggleDarkMode, isDarkMode, renderDarkMode, uploadGif, getMyGifs};

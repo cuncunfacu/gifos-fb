@@ -57,8 +57,19 @@ const startNStopRecord = async (stream) => {
         contentBox.appendChild(playBackGif)
         stopRecordingBtn.remove();
         
-        uploadBtn.addEventListener('click', () => {
-            uploadGif(blob)
+        uploadBtn.addEventListener('click', async () => {
+            let purpleHover = document.getElementById('purple-hover');
+            let statusImg = document.getElementById('gif-upload-status-svg');
+            let statusMessage = document.getElementById('gif-upload-status-message');
+            purpleHover.classList.remove('hide');
+            let uploaded = await uploadGif(blob)
+            if (uploaded) {
+                statusImg.classList.remove('spinning-loader');
+                statusImg.src = './static/images/ok.svg'
+                statusMessage.innerText = 'GIFO subido con éxito';
+            } else {
+                statusMessage.innerText = 'No pudimos subir tu GIFO. Porfavor intentalo más tarde'
+            }
         })
 
         stream.getTracks()[0].stop();
