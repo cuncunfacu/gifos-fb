@@ -6,6 +6,25 @@
     justify-content: center;
     gap: 15px;
     flex-wrap: wrap;
+    .no-content {
+        flex-direction: column;
+        align-items: center;
+        img {
+            margin-top: 110px;
+            max-height: 151px;
+            max-width: 150px;
+        }
+        p {
+            margin-top: 24px;
+            font-family: $montserrat;
+            font-weight: bold;
+            font-size: 22px;
+            color: #50E3C2;
+            text-align: center;
+            line-height: 33px;
+            width: 430px;
+        }
+    }
     .mini-card {
         img {
             height: 120px;

@@ -25,6 +25,28 @@ let oval1 = document.getElementById('oval1');
 let oval2 = document.getElementById('oval2');
 let oval3 = document.getElementById('oval3');
 
+let oval1Src = './static/images/paso-a-paso1.svg';
+let oval1HoverSrc = './static/images/paso-a-paso-hover1.svg';
+let oval2Src = './static/images/paso-a-paso2.svg';
+let oval2HoverSrc = './static/images/paso-a-paso-hover2.svg';
+let oval3Src = './static/images/paso-a-paso3.svg';
+let oval3HoverSrc = './static/images/paso-a-paso-hover3.svg';
+
+if (isDarkMode()) {
+    oval1Src = './static/images/paso-a-paso-mod-noc1.svg';
+    oval1HoverSrc = './static/images/paso-a-paso-hover-mod-noc1.svg'
+    oval2Src = './static/images/paso-a-paso-mod-noc2.svg';
+    oval2HoverSrc = './static/images/paso-a-paso-hover-mod-noc2.svg'
+    oval3Src = './static/images/paso-a-paso-mod-noc3.svg';
+    oval3HoverSrc = './static/images/paso-a-paso-hover-mod-noc3.svg'
+
+    document.getElementById('camara-img').src = './static/images/camara-modo-noc.svg';
+    document.getElementById('cinta-img').src = './static/images/element_cinta1-modo-noc.svg';
+    oval1.src = oval1Src;
+    oval2.src = oval2Src;
+    oval3.src = oval3Src;
+}
+
 const startNStopRecord = async (stream) => {
     recordBtn.remove()
     let recorder = new RecordRTCPromisesHandler(stream, {
@@ -58,6 +80,7 @@ const startNStopRecord = async (stream) => {
         stopRecordingBtn.remove();
         
         uploadBtn.addEventListener('click', async () => {
+            uploadBtn.remove()
             let purpleHover = document.getElementById('purple-hover');
             let statusImg = document.getElementById('gif-upload-status-svg');
             let statusMessage = document.getElementById('gif-upload-status-message');
@@ -67,6 +90,8 @@ const startNStopRecord = async (stream) => {
                 statusImg.classList.remove('spinning-loader');
                 statusImg.src = './static/images/ok.svg'
                 statusMessage.innerText = 'GIFO subido con éxito';
+                oval2.src = oval2Src;
+                oval3.src = oval3HoverSrc;
             } else {
                 statusMessage.innerText = 'No pudimos subir tu GIFO. Porfavor intentalo más tarde'
             }
@@ -88,8 +113,8 @@ const record = (stream) => {
     videoEl.onloadedmetadata = () => {
         video.play();
     };
-    oval1.src = './static/images/paso-a-paso1.svg';
-    oval2.src = './static/images/paso-a-paso-hover2.svg';
+    oval1.src = oval1Src;
+    oval2.src = oval2HoverSrc;
     recordBtn.addEventListener('click', () => {
         startNStopRecord(stream)
     })
@@ -101,7 +126,7 @@ const record = (stream) => {
 const handleBeggin = async () => {
     document.getElementById('content-h1').innerText = '¿Nos das acceso a tu cámara?';
     document.getElementById('content-p').innerText = 'El acceso a tu camara será válido sólo por el tiempo en el que estés creando el GIFO.'
-    oval1.src = 'static/images/paso-a-paso-hover1.svg';
+    oval1.src = oval1HoverSrc;
     beginButton.remove()
     let stream = null;
     try {

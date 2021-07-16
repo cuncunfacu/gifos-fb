@@ -174,4 +174,77 @@
         color: white;
         }
     }
+    .create-gif {
+    
+      .content-box {
+          border: 1px solid white;
+          .content {
+              h1 {
+                  color: #572EE5;
+                      span {
+                          color: $green-1;
+                          }
+              }
+              p {
+                color: white;
+              }
+          }
+          .purple-hover{
+              background-color: rgba(0, 0, 255, 0.411);          
+              p {
+                  color: #FFFFFF;
+              }
+          }
+      }
+      .controls {
+          .ovals {
+              img {
+                  margin-left: 13px;
+                  margin-right: 13px;
+                  margin-bottom: 20px;
+              }
+          }
+          .sep-line {
+              background-color: white;
+          }
+          
+      }
+      .btn-action {
+          margin-top: 20px;
+          font-family: $montserrat;
+          font-weight: bold;
+          font-size: 13px;
+          color: white;
+          letter-spacing: 0;
+          text-align: center;
+          border: 1px solid white;
+          border-radius: 25px;
+          border-radius: 25px;
+          width: 127px;
+          height: 50px;
+          background-color: $dm-gray1;
+    
+          &:hover {
+              background-color: #572EE5;
+              color: white;
+          }
+      }
+    }
+    
+    .spinning-loader {
+      animation-name: rotate-s-loader;
+      animation-iteration-count: infinite;
+      animation-duration: 1s;
+      animation-timing-function: linear;
+      position: relative;
+    }
+    
+    @keyframes rotate-s-loader {
+      from {
+        transform: rotate(0);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
 }

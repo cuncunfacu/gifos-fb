@@ -8,10 +8,6 @@ let trendingGifsComponentDiv = document.getElementById('trending-gifs-component'
 let navBarComponentDiv = document.getElementById('nav-bar-component');
 let myGifsMiniCards = document.getElementById('mygifs-mini-cards');
 
-let favoriteGifsIds = [];
-favoriteGifsIds.push(['9lEGNc2hPkmevAciHq', 'l2olcETxXQjImhNcm2', '3oxQNhG6QjONT91Ga4', 'TSIsZjiAPbFBFNNaJj'])
-localStorage.setItem('favoriteGifsIds', JSON.stringify(favoriteGifsIds))
-
 
 navBarComponent(navBarComponentDiv);
 renderDarkMode(isDarkMode());
@@ -34,8 +30,15 @@ if (myGifs.length != 0) {
         viewMoreDiv.appendChild(viewMoreBtn)
     }
 }else {
-    // todo render no favss view
-    let p = document.createElement('p');
-    p.innerText = 'No GIFS'
-    myGifsMiniCards.appendChild(p)
+    let noContentDiv = document.createElement('div');
+    noContentDiv.classList.add('no-content', 'container');
+
+    let noMyImg = document.createElement('img');
+    let noMyP = document.createElement('p');
+    noMyP.innerText = "¡Anímate a crear tu primer GIFO!";
+    noMyImg.src = './static/images/icon-mis-gifos-sin-contenido.svg';
+
+    noContentDiv.appendChild(noMyImg);
+    noContentDiv.appendChild(noMyP);
+    myGifsMiniCards.appendChild(noContentDiv)
 }

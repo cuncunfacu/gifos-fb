@@ -28,7 +28,15 @@ if (favsIds.length != 0) {
     }
 }else {
     // todo render no favss view
-    let p = document.createElement('p');
-    p.innerText = 'No FAVS'
-    favoritesMiniCards.appendChild(p)
+    let noContentDiv = document.createElement('div');
+    noContentDiv.classList.add('no-content', 'container');
+
+    let noFavsImg = document.createElement('img');
+    let noFavsP = document.createElement('p');
+    noFavsP.innerText = "¡Guarda tu primer GIFO en Favoritos para que se muestre aquí!";
+    noFavsImg.src = './static/images/icon-fav-sin-contenido.svg';
+
+    noContentDiv.appendChild(noFavsImg);
+    noContentDiv.appendChild(noFavsP);
+    favoritesMiniCards.appendChild(noContentDiv)
 }
