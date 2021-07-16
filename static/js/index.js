@@ -162,27 +162,39 @@ const renderSearch = async (searchString) => {
     
     searchResultsTitle.appendChild(sepDiv);
     searchResultsTitle.appendChild(searchStringh2);
-
+    rdiv.appendChild(searchResultsTitle);
 
     let resultsData = await searchGifs(searchString);
-    miniCardsComponent(searchResultsMiniCards, null ,resultsData.slice(0,12), false)
-    let viewMoreBtn = document.createElement('button');
-    let viewMoreDiv = document.createElement('div');
-    viewMoreDiv.classList.add('view-more-div', 'container');
-    viewMoreBtn.innerText = 'Ver mas';
-    viewMoreBtn.classList.add('view-more-btn');
-    viewMoreBtn.addEventListener('click', () => {
-        miniCardsComponent(searchResultsMiniCards, null ,resultsData.slice(12), false)
-        viewMoreBtn.classList.add('hide')
-    })
-    viewMoreDiv.appendChild(viewMoreBtn)
-
-    rdiv.appendChild(searchResultsTitle);
-    rdiv.appendChild(searchResultsMiniCards);
-
-    if (resultsData.length > 12){
-        rdiv.appendChild(viewMoreDiv)
+    if (resultsData.length > 0){
+        miniCardsComponent(searchResultsMiniCards, null ,resultsData.slice(0,12), false)
+        let viewMoreBtn = document.createElement('button');
+        let viewMoreDiv = document.createElement('div');
+        viewMoreDiv.classList.add('view-more-div', 'container');
+        viewMoreBtn.innerText = 'Ver mas';
+        viewMoreBtn.classList.add('view-more-btn');
+        viewMoreBtn.addEventListener('click', () => {
+            miniCardsComponent(searchResultsMiniCards, null ,resultsData.slice(12), false)
+            viewMoreBtn.classList.add('hide')
+        })
+        viewMoreDiv.appendChild(viewMoreBtn)
+    
+        rdiv.appendChild(searchResultsMiniCards);
+    
+        if (resultsData.length > 12){
+            rdiv.appendChild(viewMoreDiv)
+        }
+    } else {
+        let noContentDiv = document.createElement('div');
+        noContentDiv.classList.add('no-content', 'container');
+        
+        let noResImg = document.createElement('img');
+        let noResP = document.createElement('p');
+        noResP.innerText = "Intenta con otra búsqueda.";
+        noResImg.src = './static/images/icon-busqueda-sin-resultado.svg';
+        
+        noContentDiv.appendChild(noResImg);
+        noContentDiv.appendChild(noResP);
+        rdiv.appendChild(noContentDiv);
     }
-
     searchResultsDiv.appendChild(rdiv);
 }
