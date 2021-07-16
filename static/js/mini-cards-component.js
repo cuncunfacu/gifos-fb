@@ -1,4 +1,4 @@
-import {getGif, getFavs, removeFav, addFav} from './api-calls.js';
+import {getGif, getFavs, removeFav, addFav, downloadGif} from './api-calls.js';
 import {cardMaxComponent} from './card-max-component.js';
 import {apiKey, baseUrl} from './settings.js';
 const renderMinicard = (element, miniCardDiv, reloadOnMiniCardClose) => {
@@ -39,6 +39,9 @@ const renderMinicard = (element, miniCardDiv, reloadOnMiniCardClose) => {
 
         let downloadSvg = document.createElement('img');
         downloadSvg.src = './static/images/icon-download-hover.svg';
+        downloadSvg.addEventListener('click', () => {
+            downloadGif(element.id)
+        })
         hoverDivButtonGrp.appendChild(downloadSvg);
 
         let iconMax = document.createElement('img');

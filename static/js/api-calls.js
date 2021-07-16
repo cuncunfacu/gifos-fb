@@ -108,6 +108,16 @@ const uploadGif = async (blob) =>  {
         return false
     }
 }
-export {getGif, addFav, removeFav, getFavs, searchGifs, toggleDarkMode, isDarkMode, renderDarkMode, uploadGif, getMyGifs};
+
+const downloadGif = async (gifId) => {
+    let response = await fetch(`https://media2.giphy.com/media/${gifId}/giphy.gif?${apiKey}&rid=giphy.gif`);
+    let file = await response.blob();
+    let a = document.createElement('a')
+    a.download = 'GIFOS_download';
+    a.href = window.URL.createObjectURL(file);
+    a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
+    a.click();
+}
+export {getGif, addFav, removeFav, getFavs, searchGifs, toggleDarkMode, isDarkMode, renderDarkMode, uploadGif, getMyGifs, downloadGif};
 
 

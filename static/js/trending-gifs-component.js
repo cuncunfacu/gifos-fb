@@ -1,4 +1,4 @@
-import {getGif, getFavs, addFav, removeFav, isDarkMode} from './api-calls.js';
+import {getGif, getFavs, addFav, removeFav, isDarkMode, downloadGif} from './api-calls.js';
 import {baseUrl, apiKey} from './settings.js';
 import {cardMaxComponent} from './card-max-component.js';
 
@@ -110,6 +110,9 @@ const trendingGifsComponent = async (trendingGifsComponentDiv) => {
     
             let downloadSvg = document.createElement('img');
             downloadSvg.src = './static/images/icon-download-hover.svg';
+            downloadSvg.addEventListener('click', () => {
+                downloadGif(element.id)
+            })
             hoverDivButtonGrp.appendChild(downloadSvg);
     
             let iconMax = document.createElement('img');

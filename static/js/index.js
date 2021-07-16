@@ -129,6 +129,9 @@ searchInput.addEventListener('input', async (event) => {
     }
 })
 
+
+
+
 const renderSearch = async (searchString) => {
     let tc = document.getElementById('trending-container');
     tc.remove()

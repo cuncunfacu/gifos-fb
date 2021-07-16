@@ -1,5 +1,5 @@
 import {getGif} from './api-calls.js';
-import {getFavs, removeFav, addFav} from './api-calls.js'
+import {getFavs, removeFav, addFav, downloadGif} from './api-calls.js'
 const cardMaxComponent = async (id, reloadOnClose) => {
     let body = document.getElementById('body');
     let gifData = await getGif(id);
@@ -54,7 +54,9 @@ const cardMaxComponent = async (id, reloadOnClose) => {
     let downloadSvg = document.createElement('img');
     downloadSvg.src = './static/images/icon-download.svg';
     downloadSvg.classList.add('download-svg');
-
+    downloadSvg.addEventListener('click', () => {
+        downloadGif(id)
+    })
 
     cardDivMaxLeftTxt.appendChild(userTxt);
     cardDivMaxLeftTxt.appendChild(gifTitle);
