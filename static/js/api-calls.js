@@ -116,6 +116,6 @@ const downloadGif = async (gifId) => {
     a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
     a.click();
 }
-export {getGif, addFav, removeFav, getFavs, searchGifs, toggleDarkMode, isDarkMode, renderDarkMode, uploadGif, getMyGifs, downloadGif};
 
+export {getGif, addFav, removeFav, getFavs, searchGifs, toggleDarkMode, isDarkMode, renderDarkMode, uploadGif, getMyGifs, downloadGif};
 

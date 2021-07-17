@@ -1,6 +1,12 @@
 import {navBarComponent} from './nav-bar-component.js';
 import {isDarkMode, renderDarkMode, uploadGif} from './api-calls.js';
 
+let time = {
+    hour: 0,
+    min: 0,
+    sec: 0
+}
+
 let main = document.getElementById('main');
 let video = document.createElement('video');
 video.id = 'gif-vid';
@@ -10,6 +16,9 @@ let beginButton = document.getElementById('btn-comenzar');
 let recordBtn = document.createElement('button');
 recordBtn.classList.add('btn-action');
 recordBtn.innerText = 'GRABAR';
+
+let timerP = document.getElementById('timer');
+let repeatDiv = document.getElementById('repeat')
 
 let stopRecordingBtn = document.createElement('button');
 stopRecordingBtn.classList.add('btn-action');
@@ -61,8 +70,10 @@ const startNStopRecord = async (stream) => {
         }
     });
     recorder.startRecording();
+    let timerInterval = setInterval(renderTimer, 1000);
 
     stopRecordingBtn.addEventListener('click', async () => {
+        clearInterval(timerInterval);
         await recorder.stopRecording();
 
         let blob = await recorder.getBlob();
@@ -145,3 +156,20 @@ beginButton.addEventListener('click', async () => {
 navBarComponent(navBarComponentDiv);
 renderDarkMode(isDarkMode());
 
+const renderTimer = () => {
+    console.log('timer')
+    let strMin;
+    let strSec;
+
+    if (time.sec > 60) {
+        time.min = time.min + 1;
+        sec=0;
+    } else{
+        time.sec = time.sec + 1
+    }
+    strMin = time.min < 10 ? '0' + time.min : time.min.toString();
+    strSec = time.sec < 10 ? '0' + time.sec : time.sec.toString();
+
+    let timeText = time.hour.toString() + ':' + strMin + ':' + strSec;
+    timerP.innerText = timeText
+}
