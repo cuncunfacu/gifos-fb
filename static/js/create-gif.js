@@ -18,7 +18,7 @@ recordBtn.classList.add('btn-action');
 recordBtn.innerText = 'GRABAR';
 
 let timerP = document.getElementById('timer');
-let repeatDiv = document.getElementById('repeat')
+let repeatP = document.getElementById('repeat')
 
 let stopRecordingBtn = document.createElement('button');
 stopRecordingBtn.classList.add('btn-action');
@@ -74,6 +74,7 @@ const startNStopRecord = async (stream) => {
 
     stopRecordingBtn.addEventListener('click', async () => {
         clearInterval(timerInterval);
+        timerP.innerHTML = "";
         await recorder.stopRecording();
 
         let blob = await recorder.getBlob();
@@ -91,6 +92,7 @@ const startNStopRecord = async (stream) => {
         stopRecordingBtn.remove();
         
         uploadBtn.addEventListener('click', async () => {
+            repeatP.innerHTML = "";
             uploadBtn.remove()
             let purpleHover = document.getElementById('purple-hover');
             let statusImg = document.getElementById('gif-upload-status-svg');
@@ -110,6 +112,11 @@ const startNStopRecord = async (stream) => {
 
         stream.getTracks()[0].stop();
         main.appendChild(uploadBtn);
+
+        repeatP.innerText = "REPETIR CAPTURA"
+        repeatP.addEventListener('click', () => {
+            location.reload()
+        })
     })
     main.appendChild(stopRecordingBtn)
 }

@@ -83,19 +83,23 @@
                     margin-right: 13px;
                 }
             }
-            .timer, .repeat {
+            .action {
+                min-width: 5px;
+                height: 22px;
                 align-self: flex-end;
                 position: relative;
                 top: -28px;
                 right: 66px;
-                font-family: $montserrat;
-                font-weight: bold;
-                font-size: 15px;
-                color: #572EE5;
-                letter-spacing: 0;
-                text-align: center;
-                line-height: 22px;
-            }        
+                .timer, .repeat {
+                    font-family: $montserrat;
+                    font-weight: bold;
+                    font-size: 15px;
+                    color: #572EE5;
+                    letter-spacing: 0;
+                    text-align: center;
+                    line-height: 22px;
+                }        
+            }
         }
         .sep-line {
             height: 7px;
