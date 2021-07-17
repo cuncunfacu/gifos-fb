@@ -25,9 +25,7 @@ const removeFav = (id) => {
     if (index > -1) {
         ids.splice(index, 1);
     }
-    let favoriteIds = [];
-    favoriteIds.push(ids);
-    localStorage.setItem('favoriteGifsIds', JSON.stringify((favoriteIds)));
+    localStorage.setItem('favoriteGifsIds', JSON.stringify((ids)));
 }
 
 const isDarkMode = () => {
