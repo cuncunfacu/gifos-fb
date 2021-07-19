@@ -197,13 +197,13 @@
           }
       }
       .controls {
-          .ovals {
-              img {
-                  margin-left: 13px;
-                  margin-right: 13px;
-                  margin-bottom: 20px;
-              }
+        .controls-main {
+          .action {
+              .timer, .repeat {
+                  color: white;
+              } 
           }
+      }
           .sep-line {
               background-color: white;
           }

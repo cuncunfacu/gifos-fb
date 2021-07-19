@@ -45,6 +45,7 @@ const renderDarkMode = (mode) => {
     let body = document.getElementById('body');
     if (mode == true) {
         body.classList.add('body-night-mode');
+        
     } else {
         body.classList.remove('body-night-mode');
     }
@@ -100,10 +101,11 @@ const uploadGif = async (blob) =>  {
     let data = await response.json();
     if (response.status == 200) {
         saveMyGif(data.data.id)
-        return true
+        return {uploaded: true, gifId: data.data.id}
     } else {
         console.log('Hubo un error: '+ response.status)
-        return false
+        return {uploaded: false, gifId: null}
+
     }
 }
 

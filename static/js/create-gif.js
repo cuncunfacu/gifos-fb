@@ -1,5 +1,5 @@
 import {navBarComponent} from './nav-bar-component.js';
-import {isDarkMode, renderDarkMode, uploadGif} from './api-calls.js';
+import {downloadGif, isDarkMode, renderDarkMode, uploadGif} from './api-calls.js';
 
 let time = {
     hour: 0,
@@ -98,13 +98,18 @@ const startNStopRecord = async (stream) => {
             let statusImg = document.getElementById('gif-upload-status-svg');
             let statusMessage = document.getElementById('gif-upload-status-message');
             purpleHover.classList.remove('hide');
-            let uploaded = await uploadGif(blob)
+            let {uploaded, gifId} = await uploadGif(blob)
             if (uploaded) {
                 statusImg.classList.remove('spinning-loader');
-                statusImg.src = './static/images/ok.svg'
+                statusImg.src = './static/images/ok.svg';
                 statusMessage.innerText = 'GIFO subido con éxito';
                 oval2.src = oval2Src;
                 oval3.src = oval3HoverSrc;
+                document.getElementById('purple-btn-grp').classList.remove('hide')
+                purpleHover.classList.remove('hide');
+                document.getElementById('download-new-gif').addEventListener('click', ()=> {
+                    downloadGif(gifId)
+                })
             } else {
                 statusMessage.innerText = 'No pudimos subir tu GIFO. Porfavor intentalo más tarde'
             }

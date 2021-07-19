@@ -57,8 +57,17 @@
             width: 480px;
             height: 320px;
             background-color: rgba(0, 0, 255, 0.411);
-            
-            img {
+            z-index: 10;
+            .purple-btns{
+                flex-direction: row;
+                align-self: flex-end;
+                margin-bottom: 84px;
+                img {
+                    margin-right: 12px;
+                    margin-top: 11px;
+                }
+            }
+            .spinning-loader {
                 margin-top: 122px;
                 width: 22px;
                 height: 22px;
@@ -98,6 +107,11 @@
                     letter-spacing: 0;
                     text-align: center;
                     line-height: 22px;
+                }
+                .repeat {
+                    text-decoration: underline;
+                    text-decoration-color: #5ED7C6;
+                    text-decoration-thickness: 2px;
                 }        
             }
         }
